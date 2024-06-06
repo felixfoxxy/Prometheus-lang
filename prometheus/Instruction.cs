@@ -19,6 +19,7 @@ namespace prometheus
             brtrue, //True Branch
             brfalse, //False branch
             brend, //Branch end
+            jmp, //Jump to instruction
             ret //Set Return Value
         }
 

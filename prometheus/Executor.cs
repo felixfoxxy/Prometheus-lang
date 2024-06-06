@@ -137,6 +137,17 @@ namespace prometheus
                         executeBranch = variables[instruction.Target as string] != instruction.Value;
                     }
                     break;
+                case Instruction.OpCode.jmp:
+                    if(instruction.Target is string)
+                    {
+                        foreach (Method me in methods) {
+                            if (me.Definition == (instruction.Target as string))
+                            {
+                                //TODO
+                            }
+                        }
+                    }
+                    break;
                 case Instruction.OpCode.ret:
                     ret = instruction.Value;
                     break;

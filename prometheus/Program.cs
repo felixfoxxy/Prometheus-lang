@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace prometheus
@@ -40,6 +41,14 @@ namespace prometheus
                     Console.Write(ev.Value);
             };
 
+            InternalMethod sleep = new InternalMethod("System.Sleep", "Pauses the Thread for a specified time");
+            sleep.OnCall += (object _, InternalMethodCallEventArgs ev) => {
+                if (ev.Value is int)
+                {
+                    Thread.Sleep((int)ev.Value);
+                }
+            };
+
             InternalMethod rettest = new InternalMethod("System.rt", "returns the Value");
             rettest.OnCall += (object _, InternalMethodCallEventArgs ev) => {
                 rettest.Return(2);
@@ -47,6 +56,7 @@ namespace prometheus
 
             executor.internalMethods.Add(print);
             executor.internalMethods.Add(println);
+            executor.internalMethods.Add(sleep);
             executor.internalMethods.Add(rettest);
             #endregion
 
@@ -74,6 +84,13 @@ namespace prometheus
                 new Instruction(Instruction.OpCode.syscall, "System.Print", "ref retval"),
             }));
 
+            executor.methods.Add(new Method("App.test2_1", new List<Instruction>()
+            {
+                new Instruction(Instruction.OpCode.syscall, "System.Println", "wrong password"),
+                new Instruction(Instruction.OpCode.syscall, "System.Sleep", 100),
+                new Instruction(Instruction.OpCode.call, "App.test2_1", null)
+            }));
+
             executor.methods.Add(new Method("App.test2", new List<Instruction>()
             {
                 new Instruction(Instruction.OpCode.syscall, "System.Print", "Input: "),
@@ -86,7 +103,7 @@ namespace prometheus
                 new Instruction(Instruction.OpCode.brend, null, null),
 
                 new Instruction(Instruction.OpCode.brfalse, "eq", "password"),
-                new Instruction(Instruction.OpCode.syscall, "System.Println", "wrong password"),
+                new Instruction(Instruction.OpCode.call, "App.test2_1", null),
                 new Instruction(Instruction.OpCode.brend, null, null),
 
             }));
