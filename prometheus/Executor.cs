@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -52,6 +53,12 @@ namespace prometheus
             if (instruction.opCode == Instruction.OpCode.brend)
             {
                 inBranch = false;
+                executeBranch = false;
+                return null;
+            }
+
+            if (instruction.opCode == Instruction.OpCode.brk && inBranch)
+            {
                 executeBranch = false;
                 return null;
             }
@@ -123,14 +130,14 @@ namespace prometheus
                         }
                     }
                     break;
-                case Instruction.OpCode.brtrue:
+                case Instruction.OpCode.breql:
                     if (variables.ContainsKey(instruction.Target as string))
                     {
                         inBranch = true;
                         executeBranch = variables[instruction.Target as string] == instruction.Value;
                     }
                     break;
-                case Instruction.OpCode.brfalse:
+                case Instruction.OpCode.brneql:
                     if (variables.ContainsKey(instruction.Target as string))
                     {
                         inBranch = true;
@@ -146,6 +153,12 @@ namespace prometheus
                                 //TODO
                             }
                         }
+                    }
+                    break;
+                case Instruction.OpCode.add:
+                    if (instruction.Value is int && instruction.Target is string)
+                    {
+                        variables[instruction.Target as string] = (int)variables[instruction.Target as string] + (int)instruction.Value;
                     }
                     break;
                 case Instruction.OpCode.ret:

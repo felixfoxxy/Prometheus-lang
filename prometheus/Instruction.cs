@@ -16,10 +16,12 @@ namespace prometheus
             snr, //Set Variable to next Return Value
             call, //Call Function
             syscall, //Call System Function
-            brtrue, //True Branch
-            brfalse, //False branch
+            breql, //True Branch
+            brneql, //False branch
             brend, //Branch end
             jmp, //Jump to instruction
+            brk, //Break
+            add, //Add int
             ret //Set Return Value
         }
 

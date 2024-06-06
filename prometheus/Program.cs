@@ -60,8 +60,20 @@ namespace prometheus
                 random.Return(rnd.Next());
             };
 
+            InternalMethod ilt = new InternalMethod("Int.LessThan", "Returns a Random Value");
+            ilt.OnCall += (object _, InternalMethodCallEventArgs ev) => {
+                if (ev.Value is string)
+                {
+                    string cmb = ev.Value as string;
+                    string v1 = cmb.Split('-')[0], v2 = cmb.Split('-')[1];
+                    ilt.Return((executor.variables.ContainsKey(v1) ? (int)executor.variables[v1] : int.Parse(v1)) < (executor.variables.ContainsKey(v2) ? (int)executor.variables[v2] : int.Parse(v2)));
+                }
+                ilt.Return(false);
+            };
+
             executor.internalMethods.Add(print);
             executor.internalMethods.Add(println);
+            executor.internalMethods.Add(ilt);
             executor.internalMethods.Add(sleep);
             executor.internalMethods.Add(random);
             #endregion
@@ -107,20 +119,34 @@ namespace prometheus
 
                 new Instruction(Instruction.OpCode.var, "eq", "ref :args:"),
 
-                new Instruction(Instruction.OpCode.brtrue, "eq", "password"),
+                new Instruction(Instruction.OpCode.breql, "eq", "password"),
                 new Instruction(Instruction.OpCode.syscall, "System.Println", "logged in"),
                 new Instruction(Instruction.OpCode.brend, null, null),
 
-                new Instruction(Instruction.OpCode.brfalse, "eq", "password"),
+                new Instruction(Instruction.OpCode.brneql, "eq", "password"),
                 new Instruction(Instruction.OpCode.call, "App.test2_1", null),
                 new Instruction(Instruction.OpCode.brend, null, null)
 
+            }));
+
+            executor.methods.Add(new Method("App.test3", new List<Instruction>()
+            {
+                new Instruction(Instruction.OpCode.var, "lt", "a"),
+
+                new Instruction(Instruction.OpCode.breql, "lt", "a"),
+                new Instruction(Instruction.OpCode.syscall, "System.Println", "a"),
+                new Instruction(Instruction.OpCode.brk, null, null),
+                new Instruction(Instruction.OpCode.syscall, "System.Println", "b"),
+                new Instruction(Instruction.OpCode.syscall, "System.Println", "c"),
+                new Instruction(Instruction.OpCode.syscall, "System.Println", "d"),
+                new Instruction(Instruction.OpCode.syscall, "System.Println", "e"),
+                new Instruction(Instruction.OpCode.brend, null, null),
             }));
             #endregion
 
             //Console.Write("Args: ");
             //string arg = Console.ReadLine();
-            executor.Execute(executor.methods[3], "password1");
+            executor.Execute(executor.methods[3], "password");
             Console.WriteLine("---Execution Finished---");
             Console.ReadLine();
         }
