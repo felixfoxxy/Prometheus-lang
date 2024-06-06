@@ -22,6 +22,21 @@ namespace prometheus
         public Dictionary<string, object> variables = new Dictionary<string, object>();
         public List<Method> methods = new List<Method>();
 
+        public bool inBranch = false;
+        public bool executeBranch = false;
+
+        public object Execute(Method method, object args)
+        {
+            object ret = null;
+            foreach (Instruction instruction in method.instructions)
+            {
+                object lret = Execute(instruction, args);
+                if (lret != null)
+                    ret = lret;
+            }
+            return ret;
+        }
+
         public object Execute(List<Instruction> instructions, object args) {
             object ret = null;
             foreach (Instruction instruction in instructions)
@@ -34,7 +49,16 @@ namespace prometheus
         }
 
         public object Execute(Instruction instruction, object args) {
-            
+            if (instruction.opCode == Instruction.OpCode.brend)
+            {
+                inBranch = false;
+                executeBranch = false;
+                return null;
+            }
+
+            if (inBranch && !executeBranch)
+                return null;
+
             if (AutoRef && instruction.Value is string && (instruction.Value as string).StartsWith("ref "))
                 instruction.Value = new Reference((instruction.Value as string).Substring(4));
 
@@ -45,18 +69,18 @@ namespace prometheus
 
             switch (instruction.opCode)
             {
-                case Instruction.OpCode.Nop:
+                case Instruction.OpCode.nop:
                     break;
-                case Instruction.OpCode.Var:
+                case Instruction.OpCode.var:
                     if (variables.ContainsKey(instruction.Target as string)) break;
 
                     variables.Add(instruction.Target as string, instruction.Value);
                     break;
-                case Instruction.OpCode.Set:
+                case Instruction.OpCode.set:
                     if (!variables.ContainsKey(instruction.Target as string)) break;
                     variables[instruction.Target as string] = instruction.Value;
                     break;
-                case Instruction.OpCode.Call:
+                case Instruction.OpCode.call:
                     bool call_executed = false;
                     foreach(Method me in methods)
                     {
@@ -68,7 +92,7 @@ namespace prometheus
                                 break;
                             }
                             string snr = "";
-                            if (lastInstruction != null && lastInstruction.opCode == Instruction.OpCode.Snr)
+                            if (lastInstruction != null && lastInstruction.opCode == Instruction.OpCode.snr)
                                 snr = lastInstruction.Target as string;
                             ret = Execute(me.instructions, instruction.Value);
                             if(snr != "")
@@ -80,13 +104,13 @@ namespace prometheus
                         }
                     }
                     break;
-                case Instruction.OpCode.Syscall:
+                case Instruction.OpCode.syscall:
                     foreach(InternalMethod im in internalMethods)
                     {
                         if(instruction.Target as string == im.Definition)
                         {
                             string snr = "";
-                            if (lastInstruction != null && lastInstruction.opCode == Instruction.OpCode.Snr)
+                            if (lastInstruction != null && lastInstruction.opCode == Instruction.OpCode.snr)
                                 snr = lastInstruction.Target as string;
                             im.Call(instruction, instruction.Value);
                             ret = im.LastReturnValue;
@@ -99,10 +123,24 @@ namespace prometheus
                         }
                     }
                     break;
-                case Instruction.OpCode.Ret:
+                case Instruction.OpCode.brtrue:
+                    if (variables.ContainsKey(instruction.Target as string))
+                    {
+                        inBranch = true;
+                        executeBranch = variables[instruction.Target as string] == instruction.Value;
+                    }
+                    break;
+                case Instruction.OpCode.brfalse:
+                    if (variables.ContainsKey(instruction.Target as string))
+                    {
+                        inBranch = true;
+                        executeBranch = variables[instruction.Target as string] != instruction.Value;
+                    }
+                    break;
+                case Instruction.OpCode.ret:
                     ret = instruction.Value;
                     break;
-                case Instruction.OpCode.Snr:
+                case Instruction.OpCode.snr:
                     break;
             }
 

@@ -10,13 +10,16 @@ namespace prometheus
     {
         public enum OpCode
         {
-            Nop, //Nothing
-            Var, //Initialize Variable
-            Set, //Set Variable
-            Snr, //Set Variable to next Return Value
-            Call, //Call Function
-            Syscall, //Call System Function
-            Ret //Set Return Value
+            nop, //Nothing
+            var, //Initialize Variable
+            set, //Set Variable
+            snr, //Set Variable to next Return Value
+            call, //Call Function
+            syscall, //Call System Function
+            brtrue, //True Branch
+            brfalse, //False branch
+            brend, //Branch end
+            ret //Set Return Value
         }
 
         public OpCode opCode;

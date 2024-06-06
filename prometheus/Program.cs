@@ -16,8 +16,8 @@ namespace prometheus
             executor.AllowRedefinition = true;
 
             #region InternalMethods
-            InternalMethod print = new InternalMethod("System.Print", "Prints the Value");
-            print.OnCall += (object _, InternalMethodCallEventArgs ev) => {
+            InternalMethod println = new InternalMethod("System.Println", "Prints the Value and a new Line");
+            println.OnCall += (object _, InternalMethodCallEventArgs ev) => {
                 if (ev.Value is Reference) {
                     if (executor.variables.ContainsKey((ev.Value as Reference).Variable))
                     {
@@ -26,7 +26,20 @@ namespace prometheus
                 } else
                     Console.WriteLine(ev.Value);
             };
-            
+
+            InternalMethod print = new InternalMethod("System.Print", "Prints the Value");
+            print.OnCall += (object _, InternalMethodCallEventArgs ev) => {
+                if (ev.Value is Reference)
+                {
+                    if (executor.variables.ContainsKey((ev.Value as Reference).Variable))
+                    {
+                        Console.Write(executor.variables[(ev.Value as Reference).Variable]);
+                    }
+                }
+                else
+                    Console.Write(ev.Value);
+            };
+
             InternalMethod rettest = new InternalMethod("System.rt", "returns the Value");
             rettest.OnCall += (object _, InternalMethodCallEventArgs ev) => {
                 rettest.Return(2);
@@ -37,31 +50,51 @@ namespace prometheus
             #endregion
 
             #region Methods
-            executor.methods.Add(new Method("App.test", new List<Instruction>()
+            executor.methods.Add(new Method("App.test1_1", new List<Instruction>()
             {
-                new Instruction(Instruction.OpCode.Syscall, "System.Print", "ref :args:"),
-                new Instruction(Instruction.OpCode.Ret, null, "lol")
+                new Instruction(Instruction.OpCode.syscall, "System.Print", "ref :args:"),
+                new Instruction(Instruction.OpCode.ret, null, "lol")
             }));
 
-            executor.methods.Add(new Method("App.Main", new List<Instruction>()
+            executor.methods.Add(new Method("App.test1", new List<Instruction>()
             {
-                new Instruction(Instruction.OpCode.Syscall, "System.Print", "ref :args:"),
+                new Instruction(Instruction.OpCode.syscall, "System.Print", "ref :args:"),
                 
-                new Instruction(Instruction.OpCode.Var, "retval", null),
+                new Instruction(Instruction.OpCode.var, "retval", null),
 
-                new Instruction(Instruction.OpCode.Snr, "retval", null),
-                new Instruction(Instruction.OpCode.Call, "App.test", 69),
+                new Instruction(Instruction.OpCode.snr, "retval", null),
+                new Instruction(Instruction.OpCode.call, "App.test1_1", 69),
                 
-                new Instruction(Instruction.OpCode.Syscall, "System.Print", "ref retval"),
+                new Instruction(Instruction.OpCode.syscall, "System.Print", "ref retval"),
 
-                new Instruction(Instruction.OpCode.Snr, "retval", null),
-                new Instruction(Instruction.OpCode.Syscall, "System.rt", null),
+                new Instruction(Instruction.OpCode.snr, "retval", null),
+                new Instruction(Instruction.OpCode.syscall, "System.rt", null),
 
-                new Instruction(Instruction.OpCode.Syscall, "System.Print", "ref retval"),
+                new Instruction(Instruction.OpCode.syscall, "System.Print", "ref retval"),
+            }));
+
+            executor.methods.Add(new Method("App.test2", new List<Instruction>()
+            {
+                new Instruction(Instruction.OpCode.syscall, "System.Print", "Input: "),
+                new Instruction(Instruction.OpCode.syscall, "System.Print", "ref :args:"),
+                new Instruction(Instruction.OpCode.syscall, "System.Print", "\n"),
+
+                new Instruction(Instruction.OpCode.var, "eq", "ref :args:"),
+
+                new Instruction(Instruction.OpCode.brtrue, "eq", "password"),
+                new Instruction(Instruction.OpCode.syscall, "System.Print", "logged in\n"),
+                new Instruction(Instruction.OpCode.brend, null, null),
+
+                new Instruction(Instruction.OpCode.brfalse, "eq", "password"),
+                new Instruction(Instruction.OpCode.syscall, "System.Print", "wrong password\n"),
+                new Instruction(Instruction.OpCode.brend, null, null),
+
             }));
             #endregion
 
-            executor.Execute(new Instruction(Instruction.OpCode.Call, "App.Main", "ref :args:"), "uwu");
+            //Console.Write("Args: ");
+            //string arg = Console.ReadLine();
+            executor.Execute(executor.methods[2], "password");
             Console.WriteLine("---Execution Finished---");
             Console.ReadLine();
         }
