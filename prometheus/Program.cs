@@ -49,15 +49,21 @@ namespace prometheus
                 }
             };
 
-            InternalMethod rettest = new InternalMethod("System.rt", "returns the Value");
-            rettest.OnCall += (object _, InternalMethodCallEventArgs ev) => {
-                rettest.Return(2);
+            Random rnd = new Random();
+            InternalMethod random = new InternalMethod("System.Random", "Returns a Random Value");
+            random.OnCall += (object _, InternalMethodCallEventArgs ev) => {
+                if (ev.Value is int)
+                {
+                    random.Return(rnd.Next((int)ev.Value));
+                    return;
+                }
+                random.Return(rnd.Next());
             };
 
             executor.internalMethods.Add(print);
             executor.internalMethods.Add(println);
             executor.internalMethods.Add(sleep);
-            executor.internalMethods.Add(rettest);
+            executor.internalMethods.Add(random);
             #endregion
 
             #region Methods
@@ -79,14 +85,17 @@ namespace prometheus
                 new Instruction(Instruction.OpCode.syscall, "System.Print", "ref retval"),
 
                 new Instruction(Instruction.OpCode.snr, "retval", null),
-                new Instruction(Instruction.OpCode.syscall, "System.rt", null),
+                new Instruction(Instruction.OpCode.syscall, "System.Random", null),
 
                 new Instruction(Instruction.OpCode.syscall, "System.Print", "ref retval"),
             }));
 
             executor.methods.Add(new Method("App.test2_1", new List<Instruction>()
             {
-                new Instruction(Instruction.OpCode.syscall, "System.Println", "wrong password"),
+                new Instruction(Instruction.OpCode.snr, "eq", null),
+                new Instruction(Instruction.OpCode.syscall, "System.Random", null),
+                new Instruction(Instruction.OpCode.syscall, "System.Print", "wrong password - "),
+                new Instruction(Instruction.OpCode.syscall, "System.Println", "ref eq"),
                 new Instruction(Instruction.OpCode.syscall, "System.Sleep", 100),
                 new Instruction(Instruction.OpCode.call, "App.test2_1", null)
             }));
@@ -104,14 +113,14 @@ namespace prometheus
 
                 new Instruction(Instruction.OpCode.brfalse, "eq", "password"),
                 new Instruction(Instruction.OpCode.call, "App.test2_1", null),
-                new Instruction(Instruction.OpCode.brend, null, null),
+                new Instruction(Instruction.OpCode.brend, null, null)
 
             }));
             #endregion
 
             //Console.Write("Args: ");
             //string arg = Console.ReadLine();
-            executor.Execute(executor.methods[2], "password");
+            executor.Execute(executor.methods[3], "password1");
             Console.WriteLine("---Execution Finished---");
             Console.ReadLine();
         }
