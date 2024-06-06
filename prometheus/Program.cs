@@ -46,6 +46,7 @@ namespace prometheus
             };
 
             executor.internalMethods.Add(print);
+            executor.internalMethods.Add(println);
             executor.internalMethods.Add(rettest);
             #endregion
 
@@ -76,17 +77,16 @@ namespace prometheus
             executor.methods.Add(new Method("App.test2", new List<Instruction>()
             {
                 new Instruction(Instruction.OpCode.syscall, "System.Print", "Input: "),
-                new Instruction(Instruction.OpCode.syscall, "System.Print", "ref :args:"),
-                new Instruction(Instruction.OpCode.syscall, "System.Print", "\n"),
+                new Instruction(Instruction.OpCode.syscall, "System.Println", "ref :args:"),
 
                 new Instruction(Instruction.OpCode.var, "eq", "ref :args:"),
 
                 new Instruction(Instruction.OpCode.brtrue, "eq", "password"),
-                new Instruction(Instruction.OpCode.syscall, "System.Print", "logged in\n"),
+                new Instruction(Instruction.OpCode.syscall, "System.Println", "logged in"),
                 new Instruction(Instruction.OpCode.brend, null, null),
 
                 new Instruction(Instruction.OpCode.brfalse, "eq", "password"),
-                new Instruction(Instruction.OpCode.syscall, "System.Print", "wrong password\n"),
+                new Instruction(Instruction.OpCode.syscall, "System.Println", "wrong password"),
                 new Instruction(Instruction.OpCode.brend, null, null),
 
             }));
