@@ -26,6 +26,24 @@ namespace prometheus
         public bool inBranch = false;
         public bool executeBranch = false;
 
+        public object Execute(Class c, string def, object args)
+        {
+            object ret = null;
+            foreach (Method meth in c.Methods)
+            {
+                if(meth.Definition == def)
+                {
+                    object lret = Execute(meth, args);
+                    if (lret != null)
+                        ret = lret;
+
+                    if(!AllowRedefinition)
+                        break;
+                }
+            }
+            return ret;
+        }
+
         public object Execute(Method method, object args)
         {
             object ret = null;

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B050EB77-5D9C-468B-BB07-EF2CDBFF6645}</ProjectGuid>
+    <ProjectGuid>{ACA08F01-282D-48E5-949E-12885C3EC696}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>prometheus</RootNamespace>
-    <AssemblyName>prometheus</AssemblyName>
+    <RootNamespace>prometheus_compile</RootNamespace>
+    <AssemblyName>prometheus-compile</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,9 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>prometheus.Program</StartupObject>
+    <StartupObject>prometheus_compile.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="dnlib, Version=4.4.0.0, Culture=neutral, PublicKeyToken=50e96378b6e77999, processorArchitecture=MSIL">
+      <HintPath>..\packages\dnlib.4.4.0\lib\net45\dnlib.dll</HintPath>
+    </Reference>
     <Reference Include="prometheus-lib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\build\prometheus-lib.dll</HintPath>
@@ -55,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

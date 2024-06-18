@@ -5,6 +5,12 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prometheus", "prometheus\prometheus.csproj", "{B050EB77-5D9C-468B-BB07-EF2CDBFF6645}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prometheus-loader", "prometheus-loader\prometheus-loader.csproj", "{CEF05282-633C-4ABF-822C-7D0C40F41000}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prometheus-lib", "prometheus-lib\prometheus-lib.csproj", "{CF118422-0B37-43C1-9FE1-801C2BA8CE50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prometheus-compile", "prometheus-compile\prometheus-compile.csproj", "{ACA08F01-282D-48E5-949E-12885C3EC696}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{B050EB77-5D9C-468B-BB07-EF2CDBFF6645}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B050EB77-5D9C-468B-BB07-EF2CDBFF6645}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B050EB77-5D9C-468B-BB07-EF2CDBFF6645}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF05282-633C-4ABF-822C-7D0C40F41000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF05282-633C-4ABF-822C-7D0C40F41000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF05282-633C-4ABF-822C-7D0C40F41000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF05282-633C-4ABF-822C-7D0C40F41000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF118422-0B37-43C1-9FE1-801C2BA8CE50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF118422-0B37-43C1-9FE1-801C2BA8CE50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF118422-0B37-43C1-9FE1-801C2BA8CE50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF118422-0B37-43C1-9FE1-801C2BA8CE50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACA08F01-282D-48E5-949E-12885C3EC696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACA08F01-282D-48E5-949E-12885C3EC696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACA08F01-282D-48E5-949E-12885C3EC696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACA08F01-282D-48E5-949E-12885C3EC696}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
