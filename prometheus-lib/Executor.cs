@@ -26,6 +26,27 @@ namespace prometheus
         public bool inBranch = false;
         public bool executeBranch = false;
 
+        public void Index(Class c)
+        {
+            foreach (Method meth in c.Methods)
+            {
+                Index(meth);
+            }
+        }
+
+        public void Index(Method meth)
+        {
+            if (AllowRedefinition)
+            {
+                methods.Add(meth);
+            }
+            else
+            {
+                if (!methods.Contains(meth))
+                    methods.Add(meth);
+            }
+        }
+
         public object Execute(Class c, string def, object args)
         {
             object ret = null;
@@ -47,27 +68,34 @@ namespace prometheus
         public object Execute(Method method, object args)
         {
             object ret = null;
+            bool r = false;
             foreach (Instruction instruction in method.instructions)
             {
-                object lret = Execute(instruction, args);
+                object lret = Execute(instruction, args, out r);
                 if (lret != null)
                     ret = lret;
+                if (r)
+                    return ret;
             }
             return ret;
         }
 
         public object Execute(List<Instruction> instructions, object args) {
             object ret = null;
+            bool r = false;
             foreach (Instruction instruction in instructions)
             {
-                object lret = Execute(instruction, args);
+                object lret = Execute(instruction, args, out r);
                 if (lret != null)
                     ret = lret;
+                if (r)
+                    return ret;
             }
             return ret;
         }
 
-        public object Execute(Instruction instruction, object args) {
+        public object Execute(Instruction instruction, object args, out bool returned) {
+            returned = false;
             if (instruction.opCode == Instruction.OpCode.brend)
             {
                 inBranch = false;
@@ -84,10 +112,10 @@ namespace prometheus
             if (inBranch && !executeBranch)
                 return null;
 
-            if (AutoRef && instruction.Value is string && (instruction.Value as string).StartsWith("ref "))
-                instruction.Value = new Reference((instruction.Value as string).Substring(4));
+            if (AutoRef && instruction.Value is string && (instruction.Value as string).StartsWith(":[ref]: "))
+                instruction.Value = new Reference((instruction.Value as string).Substring(":[ref]: ".Length));
 
-            if (instruction.Value is Reference && (instruction.Value as Reference).Variable == ":args:")
+            if (instruction.Value is Reference && (instruction.Value as Reference).Variable == ":[args]:")
                 instruction.Value = args;
 
             object ret = null;
@@ -181,6 +209,7 @@ namespace prometheus
                     break;
                 case Instruction.OpCode.ret:
                     ret = instruction.Value;
+                    returned = true;
                     break;
                 case Instruction.OpCode.snr:
                     break;

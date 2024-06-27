@@ -29,6 +29,20 @@ namespace prometheus
         public object Target;
         public object Value;
 
+        /*public Instruction(OpCode opCode)
+        {
+            this.opCode = opCode;
+            this.Target = null;
+            this.Value = null;
+        }
+
+        public Instruction(OpCode opCode, object Target)
+        {
+            this.opCode = opCode;
+            this.Target = Target;
+            this.Value = null;
+        }*/
+
         public Instruction(OpCode opCode, object Target, object Value) {
             this.opCode = opCode;
             this.Target = Target;

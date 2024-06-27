@@ -39,6 +39,8 @@ namespace prometheus
             catch(Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
+                Console.WriteLine();
+                Console.WriteLine(ex.Message);
             }
 
             Console.ReadLine();

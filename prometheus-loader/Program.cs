@@ -1,9 +1,11 @@
-﻿using System;
+﻿using prometheus;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,26 +15,7 @@ namespace prometheus_loader
 {
     internal class Program
     {
-        public static byte[] GetEmbeddedResource(string resourceName)
-        {
-            var self = System.Reflection.Assembly.GetExecutingAssembly();
-
-            using (var rs = self.GetManifestResourceStream(resourceName))
-            {
-                if (rs != null)
-                {
-                    using (var ms = new MemoryStream())
-                    {
-                        rs.CopyTo(ms);
-                        return ms.ToArray();
-                    }
-                }
-                else
-                {
-                    return null;
-                }
-            }
-        }
+        
         public static bool IsAdministrator()
         {
             var identity = WindowsIdentity.GetCurrent();
@@ -51,17 +34,28 @@ namespace prometheus_loader
             }
             catch { }
         }
+
+
+
         public static string localPrometheusPath = "prometheus.exe";
-        public static string prometheusPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + Path.DirectorySeparatorChar + "prometheus-" + Encoding.Unicode.GetString(GetEmbeddedResource("Version")) + Path.DirectorySeparatorChar + "prometheus.exe";
+        //public static string prometheusPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + Path.DirectorySeparatorChar + "prometheus-" + Encoding.Unicode.GetString(GetEmbeddedResource("Version")) + Path.DirectorySeparatorChar + "prometheus.exe";
+
+        public static string GetOwnPath()
+        {
+            return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        }
+
         static void Main(string[] args)
         {
-            bool local = bool.Parse(Encoding.Unicode.GetString(GetEmbeddedResource("Local")));
+            /*bool local = bool.Parse(Encoding.Unicode.GetString(GetEmbeddedResource("Local")));
             if (!local && !File.Exists(prometheusPath))
             {
                 MessageBox.Show("This Application requires prometheus " + Encoding.Unicode.GetString(GetEmbeddedResource("Version")).Replace("_", "."), "Prometheus Error");
                 return;
             }
-            Process.Start(local ? localPrometheusPath : prometheusPath, Encoding.Unicode.GetString(GetEmbeddedResource("Source")));
+            Process.Start(local ? localPrometheusPath : prometheusPath, Encoding.Unicode.GetString(GetEmbeddedResource("Source")));*/
+
+            new load().exec(GetOwnPath(), args);
         }
     }
 }
