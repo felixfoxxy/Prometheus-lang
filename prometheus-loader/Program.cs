@@ -34,11 +34,30 @@ namespace prometheus_loader
             }
             catch { }
         }
+        public static byte[] GetEmbeddedResource(string resourceName)
+        {
+            var self = System.Reflection.Assembly.GetExecutingAssembly();
 
+            using (var rs = self.GetManifestResourceStream(resourceName))
+            {
+                if (rs != null)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        rs.CopyTo(ms);
+                        return ms.ToArray();
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
 
 
         public static string localPrometheusPath = "prometheus.exe";
-        //public static string prometheusPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + Path.DirectorySeparatorChar + "prometheus-" + Encoding.Unicode.GetString(GetEmbeddedResource("Version")) + Path.DirectorySeparatorChar + "prometheus.exe";
+        public static string prometheusPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + Path.DirectorySeparatorChar + "prometheus-" + Encoding.Unicode.GetString(GetEmbeddedResource("Version")) + Path.DirectorySeparatorChar + "prometheus.exe";
 
         public static string GetOwnPath()
         {
@@ -47,15 +66,19 @@ namespace prometheus_loader
 
         static void Main(string[] args)
         {
-            /*bool local = bool.Parse(Encoding.Unicode.GetString(GetEmbeddedResource("Local")));
-            if (!local && !File.Exists(prometheusPath))
+            bool local = bool.Parse(Encoding.Unicode.GetString(GetEmbeddedResource("Local")));
+            if (!local)
             {
-                MessageBox.Show("This Application requires prometheus " + Encoding.Unicode.GetString(GetEmbeddedResource("Version")).Replace("_", "."), "Prometheus Error");
-                return;
-            }
-            Process.Start(local ? localPrometheusPath : prometheusPath, Encoding.Unicode.GetString(GetEmbeddedResource("Source")));*/
+                if (!File.Exists(prometheusPath)){
+                    MessageBox.Show("This Application requires prometheus " + Encoding.Unicode.GetString(GetEmbeddedResource("Version")).Replace("_", "."), "Prometheus Error");
+                    return;
+                }
 
-            new load().exec(GetOwnPath(), args);
+                Process.Start(local ? localPrometheusPath : prometheusPath, Encoding.Unicode.GetString(GetEmbeddedResource("Source")));
+
+            }
+            else
+                new load().exec(GetOwnPath(), args);
         }
     }
 }

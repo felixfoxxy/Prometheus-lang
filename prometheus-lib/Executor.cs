@@ -125,7 +125,7 @@ namespace prometheus
                 case Instruction.OpCode.nop:
                     break;
                 case Instruction.OpCode.var:
-                    if (variables.ContainsKey(instruction.Target as string)) break;
+                    if (variables.ContainsKey(instruction.Target as string) && !AllowRedefinition) break;
 
                     variables.Add(instruction.Target as string, instruction.Value);
                     break;
@@ -180,14 +180,14 @@ namespace prometheus
                     if (variables.ContainsKey(instruction.Target as string))
                     {
                         inBranch = true;
-                        executeBranch = variables[instruction.Target as string] == instruction.Value;
+                        executeBranch = JsonHandler.ConvertToString(variables[instruction.Target as string]) == JsonHandler.ConvertToString(instruction.Value);
                     }
                     break;
                 case Instruction.OpCode.brneql:
                     if (variables.ContainsKey(instruction.Target as string))
                     {
                         inBranch = true;
-                        executeBranch = variables[instruction.Target as string] != instruction.Value;
+                        executeBranch = JsonHandler.ConvertToString(variables[instruction.Target as string]) != JsonHandler.ConvertToString(instruction.Value);
                     }
                     break;
                 case Instruction.OpCode.jmp:
@@ -202,9 +202,9 @@ namespace prometheus
                     }
                     break;
                 case Instruction.OpCode.add:
-                    if (instruction.Value is int && instruction.Target is string)
+                    if (instruction.Target is string && int.TryParse(instruction.Value.ToString(), out _))
                     {
-                        variables[instruction.Target as string] = (int)variables[instruction.Target as string] + (int)instruction.Value;
+                        variables[instruction.Target as string] = int.Parse(variables[instruction.Target as string].ToString()) + int.Parse(instruction.Value.ToString());
                     }
                     break;
                 case Instruction.OpCode.ret:

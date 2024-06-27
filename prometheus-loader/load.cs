@@ -11,27 +11,6 @@ namespace prometheus_loader
 {
     public class load
     {
-        public byte[] GetEmbeddedResource(string resourceName)
-        {
-            var self = System.Reflection.Assembly.GetExecutingAssembly();
-
-            using (var rs = self.GetManifestResourceStream(resourceName))
-            {
-                if (rs != null)
-                {
-                    using (var ms = new MemoryStream())
-                    {
-                        rs.CopyTo(ms);
-                        return ms.ToArray();
-                    }
-                }
-                else
-                {
-                    return null;
-                }
-            }
-        }
-
         public void exec(string path, string[] args)
         {
             Executor executor = new Executor();
@@ -53,7 +32,7 @@ namespace prometheus_loader
                         }
                     }
                 }
-                Class loaded = JsonHandler.ConvertToObj<Class>(Encoding.Unicode.GetString(Convert.FromBase64String(Encoding.Unicode.GetString(GetEmbeddedResource("Source")))));
+                Class loaded = JsonHandler.ConvertToObj<Class>(Encoding.Unicode.GetString(Convert.FromBase64String(Encoding.Unicode.GetString(Program.GetEmbeddedResource("Source")))));
                 //loaded.Methods[0].instructions.Insert(0, new Instruction(Instruction.OpCode.syscall, "System.Println", "uwu"));
                 executor.Index(loaded);
                 executor.Execute(loaded, "Main", args);
