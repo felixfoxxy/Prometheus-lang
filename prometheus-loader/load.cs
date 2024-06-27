@@ -32,10 +32,10 @@ namespace prometheus_loader
                         }
                     }
                 }
-                Class loaded = JsonHandler.ConvertToObj<Class>(Encoding.Unicode.GetString(Convert.FromBase64String(Encoding.Unicode.GetString(Program.GetEmbeddedResource("Source")))));
+                Application loaded = JsonHandler.ConvertToObj<Application>(Encoding.Unicode.GetString(Convert.FromBase64String(Encoding.Unicode.GetString(Program.GetEmbeddedResource("Source")))));
                 //loaded.Methods[0].instructions.Insert(0, new Instruction(Instruction.OpCode.syscall, "System.Println", "uwu"));
                 executor.Index(loaded);
-                executor.Execute(loaded, "Main", args);
+                executor.Execute(loaded, "App", "Main", args);
                 Console.WriteLine("---Execution Finished---");
             }
             catch (Exception ex)

@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application.cs" />
     <Compile Include="JsonHandler.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="Executor.cs" />

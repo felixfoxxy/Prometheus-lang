@@ -55,9 +55,12 @@ namespace prometheus_loader
             }
         }
 
-
-        public static string localPrometheusPath = "prometheus.exe";
         public static string prometheusPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + Path.DirectorySeparatorChar + "prometheus-" + Encoding.Unicode.GetString(GetEmbeddedResource("Version")) + Path.DirectorySeparatorChar + "prometheus.exe";
+
+        public static string GetOwnExe()
+        {
+            return Assembly.GetExecutingAssembly().Location;
+        }
 
         public static string GetOwnPath()
         {
@@ -74,7 +77,7 @@ namespace prometheus_loader
                     return;
                 }
 
-                Process.Start(local ? localPrometheusPath : prometheusPath, Encoding.Unicode.GetString(GetEmbeddedResource("Source")));
+                Process.Start(prometheusPath, GetOwnExe());
 
             }
             else

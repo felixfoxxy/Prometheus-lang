@@ -26,6 +26,14 @@ namespace prometheus
         public bool inBranch = false;
         public bool executeBranch = false;
 
+        public void Index(Application a)
+        {
+            foreach (Class c in a.Classes)
+            {
+                Index(c);
+            }
+        }
+
         public void Index(Class c)
         {
             foreach (Method meth in c.Methods)
@@ -45,6 +53,30 @@ namespace prometheus
                 if (!methods.Contains(meth))
                     methods.Add(meth);
             }
+        }
+
+        public object Execute(Application app, string cls, string def, object args)
+        {
+            object ret = null;
+            foreach (Class c in app.Classes)
+            {
+                if(c.Definition == cls)
+                {
+                    foreach (Method meth in c.Methods)
+                    {
+                        if (meth.Definition == def)
+                        {
+                            object lret = Execute(meth, args);
+                            if (lret != null)
+                                ret = lret;
+
+                            if (!AllowRedefinition)
+                                break;
+                        }
+                    }
+                }
+            }
+            return ret;
         }
 
         public object Execute(Class c, string def, object args)
@@ -158,6 +190,7 @@ namespace prometheus
                     }
                     break;
                 case Instruction.OpCode.syscall:
+                    bool syscall_executed = false;
                     foreach(InternalMethod im in internalMethods)
                     {
                         if(instruction.Target as string == im.Definition)
@@ -172,9 +205,12 @@ namespace prometheus
                                 if (!variables.ContainsKey(snr as string)) break;
                                 variables[snr] = ret;
                             }
+                            syscall_executed = true;
                             break;
                         }
                     }
+                    if(!syscall_executed)
+                        Console.WriteLine("Missing Syscall: " + instruction.Target as string);
                     break;
                 case Instruction.OpCode.breql:
                     if (variables.ContainsKey(instruction.Target as string))
