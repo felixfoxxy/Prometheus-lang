@@ -36,12 +36,11 @@ namespace prometheus_loader
                 //loaded.Methods[0].instructions.Insert(0, new Instruction(Instruction.OpCode.syscall, "System.Println", "uwu"));
                 executor.Index(loaded);
                 executor.Execute(loaded, "App", "Main", args);
-                Console.WriteLine("---Execution Finished---");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
-                Console.WriteLine();
+                Console.WriteLine("---");
                 Console.WriteLine(ex.Message);
             }
         }
