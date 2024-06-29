@@ -473,8 +473,23 @@ namespace prometheus_ide
         {
             if (dataGridView1.SelectedRows[0].Tag is Instruction)
             {
-                ((Method)dataGridView1.Tag).instructions.Insert((int)dataGridView1.SelectedRows[0].Cells[0].Value -1, (Instruction)dataGridView1.SelectedRows[0].Tag);
-                ((Method)dataGridView1.Tag).instructions.RemoveAt((int)dataGridView1.SelectedRows[0].Cells[0].Value + 1);
+                if (dataGridView1.Tag is Method)
+                {
+                    ((Method)dataGridView1.Tag).instructions.Insert((int)dataGridView1.SelectedRows[0].Cells[0].Value - 1, (Instruction)dataGridView1.SelectedRows[0].Tag);
+                    ((Method)dataGridView1.Tag).instructions.RemoveAt((int)dataGridView1.SelectedRows[0].Cells[0].Value + 1);
+                }
+                else if(dataGridView1.Tag is Class)
+                {
+                    foreach(Method m in ((Class)dataGridView1.Tag).Methods)
+                    {
+                        if (m.instructions.Contains(dataGridView1.SelectedRows[0].Tag as Instruction))
+                        {
+                            m.instructions.Insert((int)dataGridView1.SelectedRows[0].Cells[0].Value - 1, (Instruction)dataGridView1.SelectedRows[0].Tag);
+                            m.instructions.RemoveAt((int)dataGridView1.SelectedRows[0].Cells[0].Value + 1);
+                            break;
+                        }
+                    }
+                }
                 loadinsts();
                 stylegrid();
             }
@@ -484,8 +499,23 @@ namespace prometheus_ide
         {
             if (dataGridView1.SelectedRows[0].Tag is Instruction)
             {
-                ((Method)dataGridView1.Tag).instructions.Insert((int)dataGridView1.SelectedRows[0].Cells[0].Value + 2, (Instruction)dataGridView1.SelectedRows[0].Tag);
-                ((Method)dataGridView1.Tag).instructions.RemoveAt((int)dataGridView1.SelectedRows[0].Cells[0].Value);
+                if (dataGridView1.Tag is Method)
+                {
+                    ((Method)dataGridView1.Tag).instructions.Insert((int)dataGridView1.SelectedRows[0].Cells[0].Value + 2, (Instruction)dataGridView1.SelectedRows[0].Tag);
+                    ((Method)dataGridView1.Tag).instructions.RemoveAt((int)dataGridView1.SelectedRows[0].Cells[0].Value);
+                }
+                else if (dataGridView1.Tag is Class)
+                {
+                    foreach (Method m in ((Class)dataGridView1.Tag).Methods)
+                    {
+                        if (m.instructions.Contains(dataGridView1.SelectedRows[0].Tag as Instruction))
+                        {
+                            m.instructions.Insert((int)dataGridView1.SelectedRows[0].Cells[0].Value + 2, (Instruction)dataGridView1.SelectedRows[0].Tag);
+                            m.instructions.RemoveAt((int)dataGridView1.SelectedRows[0].Cells[0].Value);
+                            break;
+                        }
+                    }
+                }
                 loadinsts();
                 stylegrid();
             }

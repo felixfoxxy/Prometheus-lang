@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prometheus-ide", "prometheu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prometheus-unpack", "prometheus-unpack\prometheus-unpack.csproj", "{D26F5DB5-2847-4F1D-8CEF-1F39FC22273A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pmi-console", "pmi-console\pmi-console.csproj", "{A7A65FFF-57E7-458E-87D6-5E661186E8EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{D26F5DB5-2847-4F1D-8CEF-1F39FC22273A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D26F5DB5-2847-4F1D-8CEF-1F39FC22273A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D26F5DB5-2847-4F1D-8CEF-1F39FC22273A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7A65FFF-57E7-458E-87D6-5E661186E8EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7A65FFF-57E7-458E-87D6-5E661186E8EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7A65FFF-57E7-458E-87D6-5E661186E8EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7A65FFF-57E7-458E-87D6-5E661186E8EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
