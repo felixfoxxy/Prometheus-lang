@@ -16,13 +16,13 @@ namespace prometheus
             snr, //Set Variable to next Return Value
             call, //Call Function
             syscall, //Call System Function
-            breql, //True Branch
-            brneql, //False branch
+            breql, //Equal Branch
+            brneql, //Not Equal branch
             brend, //Branch end
             jmp, //Jump to instruction
             brk, //Break
             add, //Add int
-            ret //Set Return Value
+            ret //Returns a value and exits the function
         }
 
         public OpCode opCode;

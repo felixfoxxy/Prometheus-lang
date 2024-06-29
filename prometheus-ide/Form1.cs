@@ -1,11 +1,13 @@
 ﻿using Microsoft.VisualBasic;
 using prometheus;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -24,14 +26,29 @@ namespace prometheus_ide
             return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + Path.DirectorySeparatorChar;
         }
 
+        private bool tvpreventExpand = false;
+        private DateTime tvlastMouseDown = DateTime.Now;
+
+        public string cmppath = "";
         public string ProjectDir = "";
         public string ProjectSourcePath = "";
-        prometheus.Application app;
+        prometheus.Application app = new prometheus.Application();
+        CompilerOptions compilerOptions = new CompilerOptions();
 
         public Form1()
         {
             InitializeComponent();
+            treeIcons.TransparentColor = Color.FromArgb(0, 128, 0);
+            foreach (var res in Properties.Resources.ResourceManager.GetResourceSet(CultureInfo.CurrentCulture, true, true))
+            {
+                DictionaryEntry dres = (DictionaryEntry)res;
+                if (dres.Key.ToString().StartsWith("Class_Browser"))
+                {
+                    treeIcons.Images.Add(dres.Key.ToString(), ((System.Drawing.Image)dres.Value));
+                }
+            }
             resize();
+            reloadProject(false);
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)
@@ -42,8 +59,8 @@ namespace prometheus_ide
         void resize()
         {
             treeView1.Height = this.Height - (treeView1.Location.Y + 51);
-            dataGridView1.Height = this.Height - (dataGridView1.Location.Y + 51);
-            dataGridView1.Width = this.Width - (dataGridView1.Location.X + 28);
+            tabControl1.Height = this.Height - (tabControl1.Location.Y + 51);
+            tabControl1.Width = this.Width - (tabControl1.Location.X + 28);
         }
 
         private void compileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -67,38 +84,62 @@ namespace prometheus_ide
         public void openProject(string path)
         {
             treeView1.Nodes.Clear();
+            cmppath = Path.GetDirectoryName(path) + Path.DirectorySeparatorChar + "compiler.json";
             app = JsonHandler.ConvertToObj<prometheus.Application>(File.ReadAllText(path));
-            TreeNode node = new TreeNode(app.Name);
-            node.Tag = app;
-            treeView1.Nodes.Add(node);
-            foreach (Class c in app.Classes)
-                loadClass(c, node);
+            if(File.Exists(cmppath))
+                compilerOptions = JsonHandler.ConvertToObj<CompilerOptions>(File.ReadAllText(cmppath));
+            else
+            {
+                compilerOptions = new CompilerOptions();
+                compilerOptions.BuildPath = ProjectDir + Path.DirectorySeparatorChar + "build" + Path.DirectorySeparatorChar + "build.exe";
+                compilerOptions.CompilerPath = GetOwnPath() + "prometheus-compile.exe";
+                File.WriteAllText(cmppath, JsonHandler.ConvertToString(compilerOptions));
+            }
+            reloadProject();
         }
 
-        public void reloadProject()
+        public void reloadProject(bool open = true)
         {
-            prometheus.Application app = treeView1.Nodes[0].Tag as prometheus.Application;
-            treeView1.Nodes.Clear();
-            TreeNode node = new TreeNode(app.Name);
-            node.Tag = app;
-            treeView1.Nodes.Add(node);
-            foreach (Class c in app.Classes)
-                loadClass(c, node);
+            if (open)
+            {
+                //app = treeView1.Nodes[0].Tag as prometheus.Application;
+                treeView1.Nodes.Clear();
+                TreeNode node = new TreeNode(app.Name);
+                node.Tag = app;
+                node.ImageKey = "Class_Browser16_151";
+                node.SelectedImageKey = "Class_Browser16_151";
+                treeView1.Nodes.Add(node);
+                List<Class> cs = new List<Class>();
+                foreach (Class c in app.Classes)
+                    loadClass(c, node);
+            }
+            checkBox1.Checked = compilerOptions.AllowRedefinition;
+            checkBox2.Checked = compilerOptions.AutoRef;
+            checkBox3.Checked = compilerOptions.AddMethodDefClass;
+            textBox1.Text = app.EntryClass;
+            textBox2.Text = app.EntryMethod;
         }
 
         public void loadClass(Class c, TreeNode pnode)
         {
             TreeNode node = new TreeNode(c.Definition);
             node.Tag = c;
+            node.ImageKey = "Class_Browser16_7";
+            node.SelectedImageKey = "Class_Browser16_7";
             pnode.Nodes.Add(node);
             foreach (Method m in c.Methods)
                 loadMethod(m, node);
+            if(c.Classes != null)
+                foreach(Class sc in c.Classes)
+                    loadClass(sc, node);
         }
 
         public void loadMethod(Method m, TreeNode pnode)
         {
             TreeNode node = new TreeNode(m.Definition);
             node.Tag = m;
+            node.ImageKey = "Class_Browser16_61";
+            node.SelectedImageKey = "Class_Browser16_61";
             pnode.Nodes.Add(node);
         }
         #endregion
@@ -111,7 +152,7 @@ namespace prometheus_ide
             }
             catch (Exception) { }
             save();
-            Process cmp = Process.Start(GetOwnPath() + "prometheus-compile.exe", ProjectSourcePath + " " + outpath);
+            Process cmp = Process.Start(compilerOptions.CompilerPath, ProjectSourcePath + " " + outpath + (compilerOptions.AllowRedefinition ? " -redef" : "") + (compilerOptions.AutoRef ? " -autoref" : "") + (compilerOptions.AddMethodDefClass ? " -mdefc" : ""));
             while (!cmp.HasExited)
             {
                 Thread.Sleep(100);
@@ -121,33 +162,55 @@ namespace prometheus_ide
         void loadinsts()
         {
             dataGridView1.Rows.Clear();
-            if (treeView1.SelectedNode.Tag is Method)
+            if (treeView1.SelectedNode != null)
             {
-                Method meth = treeView1.SelectedNode.Tag as Method;
-                for (int i = 0; i < meth.instructions.Count; i++)
+                if (treeView1.SelectedNode.Tag is Method)
                 {
-                    Instruction inst = meth.instructions[i];
-                    dataGridView1.Rows.Add(i, inst.opCode.ToString(), inst.Target != null ? inst.Target.ToString() : "", inst.Value != null ? inst.Value.ToString() : "");
-                    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = inst;
-                }
-            }
-            else if (treeView1.SelectedNode.Tag is Class)
-            {
-                foreach (Method meth in (treeView1.SelectedNode.Tag as Class).Methods)
-                {
-                    dataGridView1.Rows.Add("🠷", "", "", meth.Definition);
-                    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = meth;
+                    Method meth = treeView1.SelectedNode.Tag as Method;
                     for (int i = 0; i < meth.instructions.Count; i++)
                     {
                         Instruction inst = meth.instructions[i];
                         dataGridView1.Rows.Add(i, inst.opCode.ToString(), inst.Target != null ? inst.Target.ToString() : "", inst.Value != null ? inst.Value.ToString() : "");
                         dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = inst;
                     }
-                    dataGridView1.Rows.Add("🠵", "", "");
-                    dataGridView1.Rows.Add("", "", "");
                 }
+                else if (treeView1.SelectedNode.Tag is Class)
+                {
+                    loadinstsc(treeView1.SelectedNode.Tag as Class, 0);
+                }
+                dataGridView1.Tag = treeView1.SelectedNode.Tag;
             }
-            dataGridView1.Tag = treeView1.SelectedNode.Tag;
+        }
+
+        void loadinstsc(Class c, int tab)
+        {
+            int spc = 5;
+            int stab = tab * spc;
+            //dataGridView1.Rows.Add("🠷", "", "", c.Definition);
+            //dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = c;
+
+            //foreach (Class sc in c.Classes)
+            //{
+            //    loadinstsc(sc, tab + 1);
+            //}
+
+            //new string(' ', stab + 1)
+
+            foreach (Method meth in (treeView1.SelectedNode.Tag as Class).Methods)
+            {
+                dataGridView1.Rows.Add("🠷", "", "", meth.Definition);
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = meth;
+                for (int i = 0; i < meth.instructions.Count; i++)
+                {
+                    Instruction inst = meth.instructions[i];
+                    dataGridView1.Rows.Add(i, inst.opCode.ToString(), inst.Target != null ? inst.Target.ToString() : "", inst.Value != null ? inst.Value.ToString() : "");
+                    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Tag = inst;
+                }
+                dataGridView1.Rows.Add("🠵", "", "", "");
+                if((treeView1.SelectedNode.Tag as Class).Methods.IndexOf(meth) != (treeView1.SelectedNode.Tag as Class).Methods.Count -1)
+                    dataGridView1.Rows.Add("", "", "", "");
+            }
+            //dataGridView1.Rows.Add("🠵", "", "", c.Definition);
         }
 
         void stylegrid()
@@ -190,9 +253,25 @@ namespace prometheus_ide
                 string input = Interaction.InputBox("Class Name", "Prometheus Instruction IDE");
                 if (!string.IsNullOrWhiteSpace(input))
                 {
-                    Class nc = new Class(input, new List<Method>());
+                    Class nc = new Class(input, new List<Method>(), new List<Class>());
                     ((prometheus.Application)treeView1.SelectedNode.Tag).Classes.Add(nc);
                     reloadProject();
+                    loadinsts();
+                    stylegrid();
+                }
+            }
+            else if (treeView1.SelectedNode.Tag is Class)
+            {
+                string input = Interaction.InputBox("Class Name", "Prometheus Instruction IDE");
+                if (!string.IsNullOrWhiteSpace(input))
+                {
+                    Class nc = new Class(input, new List<Method>(), new List<Class>());
+                    if (((Class)treeView1.SelectedNode.Tag).Classes == null)
+                        ((Class)treeView1.SelectedNode.Tag).Classes = new List<Class>();
+                    ((Class)treeView1.SelectedNode.Tag).Classes.Add(nc);
+                    reloadProject();
+                    loadinsts();
+                    stylegrid();
                 }
             }
         }
@@ -207,6 +286,8 @@ namespace prometheus_ide
                     Method nm = new Method(input, new List<Instruction>() { new Instruction(Instruction.OpCode.nop, null, null) });
                     ((Class)treeView1.SelectedNode.Tag).Methods.Add(nm);
                     reloadProject();
+                    loadinsts();
+                    stylegrid();
                 }
             }
         }
@@ -219,7 +300,11 @@ namespace prometheus_ide
 
         private void treeView1_MouseDown(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Right)
+            int delta = (int)DateTime.Now.Subtract(tvlastMouseDown).TotalMilliseconds;
+            tvpreventExpand = (delta < SystemInformation.DoubleClickTime);
+            tvlastMouseDown = DateTime.Now;
+
+            if (e.Button == MouseButtons.Right)
             {
                 if(treeView1.SelectedNode != null)
                 {
@@ -254,13 +339,14 @@ namespace prometheus_ide
             treeView1.Nodes.Clear();
             ProjectDir = "";
             ProjectSourcePath = "";
+            cmppath = "";
         }
 
         private void runToolStripMenuItem_Click(object sender, EventArgs e)
         {
             save();
-            compile(ProjectDir + Path.DirectorySeparatorChar + "build" + Path.DirectorySeparatorChar + "build.exe");
-            Process.Start(ProjectDir + Path.DirectorySeparatorChar + "build" + Path.DirectorySeparatorChar + "build.exe");
+            compile(compilerOptions.BuildPath);
+            Process.Start(compilerOptions.BuildPath);
         }
 
         private void packageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -313,7 +399,7 @@ namespace prometheus_ide
                 if (dataGridView1.Tag is Method)
                 {
                     int pos = ((Method)dataGridView1.Tag).instructions.IndexOf(dataGridView1.SelectedRows[0].Tag as Instruction);
-                    ((Method)dataGridView1.Tag).instructions.Insert(pos, new Instruction(Instruction.OpCode.nop, null, "asd"));
+                    ((Method)dataGridView1.Tag).instructions.Insert(pos, new Instruction(Instruction.OpCode.nop, null, null));
                 }
                 else if (dataGridView1.Tag is Class)
                 {
@@ -322,7 +408,7 @@ namespace prometheus_ide
                         if (meth.instructions.Contains(dataGridView1.SelectedRows[0].Tag as Instruction))
                         {
                             int pos = meth.instructions.IndexOf(dataGridView1.SelectedRows[0].Tag as Instruction);
-                            meth.instructions.Insert(pos, new Instruction(Instruction.OpCode.nop, null, "asd"));
+                            meth.instructions.Insert(pos, new Instruction(Instruction.OpCode.nop, null, null));
                         }
                     }
                 }
@@ -338,7 +424,7 @@ namespace prometheus_ide
                 if (dataGridView1.Tag is Method)
                 {
                     int pos = ((Method)dataGridView1.Tag).instructions.IndexOf(dataGridView1.SelectedRows[0].Tag as Instruction);
-                    ((Method)dataGridView1.Tag).instructions.Insert(pos + 1, new Instruction(Instruction.OpCode.nop, null, "sad"));
+                    ((Method)dataGridView1.Tag).instructions.Insert(pos + 1, new Instruction(Instruction.OpCode.nop, null, null));
                 }
                 else if (dataGridView1.Tag is Class)
                 {
@@ -347,7 +433,7 @@ namespace prometheus_ide
                         if (meth.instructions.Contains(dataGridView1.SelectedRows[0].Tag as Instruction))
                         {
                             int pos = meth.instructions.IndexOf(dataGridView1.SelectedRows[0].Tag as Instruction);
-                            meth.instructions.Insert(pos + 1, new Instruction(Instruction.OpCode.nop, null, "sad"));
+                            meth.instructions.Insert(pos + 1, new Instruction(Instruction.OpCode.nop, null, null));
                         }
                     }
                 }
@@ -365,6 +451,103 @@ namespace prometheus_ide
                     contextInst.Show(Cursor.Position);
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            app.EntryClass = textBox1.Text;
+            app.EntryMethod = checkBox3.Checked ? textBox1.Text + "." + textBox2.Text : textBox2.Text;
+        }
+
+        private void upToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows[0].Tag is Instruction)
+            {
+                ((Method)dataGridView1.Tag).instructions.Insert((int)dataGridView1.SelectedRows[0].Cells[0].Value -1, (Instruction)dataGridView1.SelectedRows[0].Tag);
+                ((Method)dataGridView1.Tag).instructions.RemoveAt((int)dataGridView1.SelectedRows[0].Cells[0].Value + 1);
+                loadinsts();
+                stylegrid();
+            }
+        }
+
+        private void downToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows[0].Tag is Instruction)
+            {
+                ((Method)dataGridView1.Tag).instructions.Insert((int)dataGridView1.SelectedRows[0].Cells[0].Value + 2, (Instruction)dataGridView1.SelectedRows[0].Tag);
+                ((Method)dataGridView1.Tag).instructions.RemoveAt((int)dataGridView1.SelectedRows[0].Cells[0].Value);
+                loadinsts();
+                stylegrid();
+            }
+        }
+
+        void delclass(Class c)
+        {
+            if (c.Classes.Contains(treeView1.SelectedNode.Tag as Class))
+                c.Classes.Remove(treeView1.SelectedNode.Tag as Class);
+            else
+                foreach (Class sc in c.Classes)
+                    delclass(sc);
+        }
+
+        void delmeth(Class c)
+        {
+            if (c.Methods.Contains(treeView1.SelectedNode.Tag as Method))
+                c.Methods.Remove(treeView1.SelectedNode.Tag as Method);
+            else
+                foreach (Class sc in c.Classes)
+                    delmeth(sc);
+        }
+
+        List<Class> getClasses(Class c)
+        {
+            List<Class> classes = new List<Class>();
+            foreach(Class sc in c.Classes)
+                classes.Add(sc);
+            return classes;
+        }
+
+        private void confirmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(treeView1.SelectedNode != null)
+            {
+                if(treeView1.SelectedNode.Tag is Class)
+                {
+                    //List<Class> cs = new List<Class>();
+                    foreach (Class c in app.Classes)
+                        delclass(c);
+                }
+                else if (treeView1.SelectedNode.Tag is Method)
+                {
+                    //List<Class> cs = new List<Class>();
+                    foreach (Class c in app.Classes)
+                        delmeth(c);
+                    
+                }
+                reloadProject();
+                loadinsts();
+                stylegrid();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            compilerOptions.AllowRedefinition = checkBox1.Checked;
+            compilerOptions.AutoRef = checkBox2.Checked;
+            compilerOptions.AddMethodDefClass = checkBox3.Checked;
+            File.WriteAllText(cmppath, JsonHandler.ConvertToString(compilerOptions));
+        }
+
+        private void treeView1_BeforeExpand(object sender, TreeViewCancelEventArgs e)
+        {
+            e.Cancel = tvpreventExpand;
+            tvpreventExpand = false;
+        }
+
+        private void treeView1_BeforeCollapse(object sender, TreeViewCancelEventArgs e)
+        {
+            e.Cancel = tvpreventExpand;
+            tvpreventExpand = false;
         }
     }
 

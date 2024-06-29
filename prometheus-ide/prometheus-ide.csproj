@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompilerOptions.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -5389,6 +5390,513 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\accessibility_toggle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.6.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.7.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.8.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.9.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.10.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.12.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.13.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.14.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.15.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.16.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.17.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.18.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.19.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.20.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.21.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.22.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.23.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.24.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.25.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.26.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.27.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.28.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.29.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.30.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.31.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.32.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.33.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.34.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.35.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.36.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.37.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.38.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.39.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.40.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.41.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.42.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.43.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.44.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.45.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.46.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.47.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.48.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.49.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.50.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.51.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.52.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.53.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.54.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.55.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.56.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.57.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.58.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.59.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.60.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.61.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.62.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.63.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.64.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.65.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.66.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.67.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.68.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.69.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.70.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.71.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.72.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.73.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.74.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.75.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.76.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.77.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.78.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.79.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.80.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.81.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.82.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.83.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.84.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.85.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.86.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.87.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.88.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.89.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.90.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.91.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.92.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.93.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.94.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.95.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.96.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.97.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.98.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.99.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.100.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.101.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.102.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.103.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.104.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.105.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.106.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.107.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.108.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.109.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.110.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.111.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.112.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.113.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.114.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.115.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.116.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.117.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.118.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.119.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.120.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.121.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.122.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.123.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.124.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.125.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.126.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.127.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.128.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.129.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.130.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.131.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.132.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.133.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.134.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.135.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.136.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.137.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.138.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.139.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.140.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.141.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.142.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.143.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.144.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.145.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.146.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.147.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.148.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.149.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.150.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.151.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.152.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.153.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.154.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.155.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.156.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.157.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.158.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.159.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.160.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.161.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.162.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.163.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.164.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.165.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.166.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.167.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.168.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class.Browser16.2.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

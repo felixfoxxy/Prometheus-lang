@@ -13,6 +13,7 @@ namespace prometheus
         //Config
         public bool AutoRef = true;
         public bool AllowRedefinition = false;
+        public bool AddMethodDefClass = true;
 
         //Language
         
@@ -38,7 +39,52 @@ namespace prometheus
         {
             foreach (Method meth in c.Methods)
             {
-                Index(meth);
+                if (AddMethodDefClass)
+                    Index(meth, c);
+                else
+                    Index(meth);
+            }
+            foreach(Class sc in c.Classes)
+            {
+                if(AddMethodDefClass)
+                    Index(sc, c);
+                else
+                    Index(sc);
+            }
+        }
+
+        public void Index(Class c, Class pc)
+        {
+            if (AddMethodDefClass)
+                c.Definition = pc.Definition + "." + c.Definition;
+            foreach (Method meth in c.Methods)
+            {
+                if (AddMethodDefClass)
+                    Index(meth, c);
+                else
+                    Index(meth);
+            }
+            foreach (Class sc in c.Classes)
+            {
+                Index(sc, c);
+            }
+        }
+
+        public void Index(Method meth, Class c)
+        {
+            if (AddMethodDefClass)
+                meth.Definition = c.Definition + "." + meth.Definition;
+
+            if (AllowRedefinition)
+            {
+                methods.Add(meth);
+            }
+            else
+            {
+                if (!methods.Contains(meth))
+                    methods.Add(meth);
+                else
+                    Console.WriteLine("-->Index Redefinition blocked: " + meth.Definition);
             }
         }
 
@@ -60,21 +106,7 @@ namespace prometheus
             object ret = null;
             foreach (Class c in app.Classes)
             {
-                if(c.Definition == cls)
-                {
-                    foreach (Method meth in c.Methods)
-                    {
-                        if (meth.Definition == def)
-                        {
-                            object lret = Execute(meth, args);
-                            if (lret != null)
-                                ret = lret;
 
-                            if (!AllowRedefinition)
-                                break;
-                        }
-                    }
-                }
             }
             return ret;
         }
@@ -82,17 +114,27 @@ namespace prometheus
         public object Execute(Class c, string def, object args)
         {
             object ret = null;
+            bool found = false;
             foreach (Method meth in c.Methods)
             {
                 if(meth.Definition == def)
                 {
+                    if (!AllowRedefinition && found)
+                    {
+                        Console.WriteLine("-->Method Redefinition blocked: " + meth.Definition);
+                        break;
+                    }
+
                     object lret = Execute(meth, args);
                     if (lret != null)
                         ret = lret;
-
-                    if(!AllowRedefinition)
-                        break;
+                    found = true;
                 }
+            }
+            if (!found)
+            {
+                foreach (Class sc in c.Classes)
+                    ret = Execute(sc, def, args);
             }
             return ret;
         }
@@ -173,7 +215,7 @@ namespace prometheus
                         {
                             if (!AllowRedefinition && call_executed)
                             {
-                                Console.WriteLine("-->Method Redefinition blocked!");
+                                Console.WriteLine("-->Method Redefinition blocked: " + instruction.Target);
                                 break;
                             }
                             string snr = "";
@@ -188,6 +230,8 @@ namespace prometheus
                             call_executed = true;
                         }
                     }
+                    if(!call_executed)
+                        Console.WriteLine("-->Method not found: " + instruction.Target);
                     break;
                 case Instruction.OpCode.syscall:
                     bool syscall_executed = false;
@@ -210,20 +254,36 @@ namespace prometheus
                         }
                     }
                     if(!syscall_executed)
-                        Console.WriteLine("Missing Syscall: " + instruction.Target as string);
+                        Console.WriteLine("-->Missing Syscall: " + instruction.Target as string);
                     break;
                 case Instruction.OpCode.breql:
                     if (variables.ContainsKey(instruction.Target as string))
                     {
-                        inBranch = true;
-                        executeBranch = JsonHandler.ConvertToString(variables[instruction.Target as string]) == JsonHandler.ConvertToString(instruction.Value);
+                        if (instruction.Value is Reference)
+                        {
+                            inBranch = true;
+                            executeBranch = JsonHandler.ConvertToString(variables[instruction.Target as string]) == JsonHandler.ConvertToString(variables[((Reference)instruction.Value).Variable]);
+                        }
+                        else
+                        {
+                            inBranch = true;
+                            executeBranch = JsonHandler.ConvertToString(variables[instruction.Target as string]) == JsonHandler.ConvertToString(instruction.Value);
+                        }
                     }
                     break;
                 case Instruction.OpCode.brneql:
                     if (variables.ContainsKey(instruction.Target as string))
                     {
-                        inBranch = true;
-                        executeBranch = JsonHandler.ConvertToString(variables[instruction.Target as string]) != JsonHandler.ConvertToString(instruction.Value);
+                        if (instruction.Value is Reference)
+                        {
+                            inBranch = true;
+                            executeBranch = JsonHandler.ConvertToString(variables[instruction.Target as string]) != JsonHandler.ConvertToString(variables[((Reference)instruction.Value).Variable]);
+                        }
+                        else
+                        {
+                            inBranch = true;
+                            executeBranch = JsonHandler.ConvertToString(variables[instruction.Target as string]) != JsonHandler.ConvertToString(instruction.Value);
+                        }
                     }
                     break;
                 case Instruction.OpCode.jmp:

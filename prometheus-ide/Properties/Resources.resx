@@ -856,6 +856,513 @@
   <data name="circle_question_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circle_question-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Class_Browser16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.1.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.10.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.100.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_101" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.101.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_102" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.102.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_103" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.103.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_104" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.104.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_105" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.105.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_106" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.106.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_107" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.107.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_108" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.108.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_109" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.109.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.11.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_110" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.110.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_111" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.111.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_112" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.112.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_113" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.113.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_114" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.114.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_115" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.115.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_116" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.116.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_117" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.117.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_118" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.118.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_119" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.119.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.12.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_120" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.120.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_121" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.121.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_122" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.122.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_123" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.123.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_124" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.124.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_125" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.125.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_126" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.126.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_127" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.127.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.128.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_129" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.129.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.13.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_130" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.130.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_131" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.131.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_132" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.132.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_133" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.133.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_134" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.134.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_135" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.135.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_136" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.136.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_137" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.137.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_138" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.138.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_139" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.139.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.14.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_140" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.140.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_141" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.141.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_142" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.142.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_143" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.143.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_144" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.144.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_145" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.145.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_146" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.146.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_147" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.147.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_148" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.148.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_149" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.149.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.15.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_150" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.150.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_151" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.151.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_152" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.152.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_153" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.153.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_154" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.154.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_155" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.155.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_156" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.156.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_157" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.157.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_158" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.158.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_159" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.159.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.16.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_160" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.160.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.161.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_162" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.162.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_163" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.163.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_164" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.164.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_165" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.165.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_166" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.166.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_167" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.167.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_168" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.168.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.17.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.18.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_19" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.19.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.2.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.20.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.21.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.22.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_23" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.23.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.24.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.25.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_26" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.26.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_27" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.27.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_28" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.28.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_29" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.29.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.3.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.30.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.31.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.32.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_33" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.33.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_34" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.34.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_35" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.35.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_36" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.36.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_37" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.37.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_38" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.38.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_39" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.39.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.4.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.40.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.41.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_42" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.42.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_43" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.43.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_44" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.44.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_45" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.45.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_46" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.46.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_47" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.47.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.48.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_49" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.49.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.5.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.50.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_51" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.51.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_52" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.52.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_53" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.53.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_54" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.54.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_55" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.55.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_56" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.56.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_57" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.57.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_58" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.58.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_59" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.59.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.6.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_60" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.60.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_61" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.61.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_62" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.62.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_63" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.63.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.64.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_65" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.65.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_66" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.66.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_67" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.67.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_68" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.68.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_69" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.69.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.7.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_70" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.70.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_71" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.71.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.72.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_73" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.73.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_74" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.74.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_75" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.75.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_76" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.76.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_77" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.77.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_78" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.78.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_79" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.79.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.8.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_80" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.80.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_81" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.81.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_82" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.82.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_83" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.83.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_84" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.84.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_85" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.85.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_86" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.86.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_87" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.87.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_88" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.88.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_89" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.89.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.9.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_90" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.90.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_91" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.91.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_92" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.92.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_93" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.93.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_94" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.94.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_95" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.95.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.96.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_97" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.97.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_98" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.98.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Class_Browser16_99" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Class.Browser16.99.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="clean_drive_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clean_drive-0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

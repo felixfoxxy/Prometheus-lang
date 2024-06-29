@@ -45,11 +45,13 @@ namespace prometheus_ide
             string rootdir = textBox1.Text + Path.DirectorySeparatorChar + textBox2.Text;
             string buildpath = rootdir + Path.DirectorySeparatorChar + "build";
             string srcpath = rootdir + Path.DirectorySeparatorChar + textBox2.Text + ".json";
+            string cmppath = rootdir + Path.DirectorySeparatorChar + "compiler.json";
             Directory.CreateDirectory(rootdir);
             Directory.CreateDirectory(buildpath);
             prometheus.Application app = new prometheus.Application();
             app.Name = textBox2.Text;
             File.WriteAllText(srcpath, JsonHandler.ConvertToString(app));
+            File.WriteAllText(cmppath, JsonHandler.ConvertToString(new CompilerOptions()));
             ProjectDir = rootdir;
             ProjectSourcePath = srcpath;
             this.Close();

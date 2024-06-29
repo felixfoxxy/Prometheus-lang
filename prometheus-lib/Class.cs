@@ -9,11 +9,14 @@ namespace prometheus
     public class Class
     {
         public string Definition;
-        public List<Method> Methods;
+        public List<Method> Methods = new List<Method>();
+        public List<Class> Classes = new List<Class>();
 
-        public Class(string definition, List<Method> methods) {
+        public Class(string definition, List<Method> methods, List<Class> classes)
+        {
             Definition = definition;
             Methods = methods;
+            Classes = classes;
         }
     }
 }

@@ -18,26 +18,37 @@ namespace prometheus_compile
         }
         static void Main(string[] args)
         {
-            if (args.Length == 2)
+            if (args.Length >= 2)
             {
-                if (!File.Exists(args[0]))
+                try {
+                    if (!File.Exists(args[0]))
+                    {
+                        Console.WriteLine("Invalid Source File!");
+                        return;
+                    }
+                    DateTime start = DateTime.Now;
+
+                    Application app = JsonHandler.ConvertToObj<Application>(File.ReadAllText(args[0]));
+                    string enc = JsonHandler.ConvertToString(app);
+
+                    ModuleDefMD module = ModuleDefMD.Load("loader.bin");
+                    module.Resources.Add(new EmbeddedResource("AllowRedefinition", Encoding.Unicode.GetBytes(args.Contains("-redef").ToString())));
+                    module.Resources.Add(new EmbeddedResource("AutoRef", Encoding.Unicode.GetBytes(args.Contains("-autoref").ToString())));
+                    module.Resources.Add(new EmbeddedResource("AddMethodDefClass", Encoding.Unicode.GetBytes(args.Contains("-mdefc").ToString())));
+
+                    module.Resources.Add(new EmbeddedResource("Source", Encoding.Unicode.GetBytes(Convert.ToBase64String(Encoding.Unicode.GetBytes(enc)))));
+                    module.Resources.Add(new EmbeddedResource("Version", Encoding.Unicode.GetBytes("1_0")));
+                    module.Resources.Add(new EmbeddedResource("Local", Encoding.Unicode.GetBytes(true.ToString())));
+                    module.Write(args[1]);
+                    DateTime end = DateTime.Now;
+                    TimeSpan finish = end.Subtract(start);
+                    Console.WriteLine("Compilation finished in " + finish.Hours + ":" + finish.Minutes + ":" + finish.Seconds + ":" + finish.Milliseconds);
+                }catch(Exception ex)
                 {
-                    Console.WriteLine("Invalid Source File!");
-                    return;
+                    Console.WriteLine(ex.StackTrace);
+                    Console.WriteLine("---");
+                    Console.WriteLine(ex.Message);
                 }
-                DateTime start = DateTime.Now;
-
-                Application app = JsonHandler.ConvertToObj<Application>(File.ReadAllText(args[0]));
-                string enc = JsonHandler.ConvertToString(app);
-
-                ModuleDefMD module = ModuleDefMD.Load("loader.bin");
-                module.Resources.Add(new EmbeddedResource("Source", Encoding.Unicode.GetBytes(Convert.ToBase64String(Encoding.Unicode.GetBytes(enc)))));
-                module.Resources.Add(new EmbeddedResource("Version", Encoding.Unicode.GetBytes("1_0")));
-                module.Resources.Add(new EmbeddedResource("Local", Encoding.Unicode.GetBytes(true.ToString())));
-                module.Write(args[1]);
-                DateTime end = DateTime.Now;
-                TimeSpan finish = end.Subtract(start);
-                Console.WriteLine("Compilation finished in " + finish.Hours + ":" + finish.Minutes + ":" + finish.Seconds + ":" + finish.Milliseconds);
             }
             else
             {

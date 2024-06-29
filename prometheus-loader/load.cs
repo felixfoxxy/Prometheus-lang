@@ -14,8 +14,9 @@ namespace prometheus_loader
         public void exec(string path, string[] args)
         {
             Executor executor = new Executor();
-            executor.AllowRedefinition = false;
-
+            executor.AllowRedefinition = bool.Parse(Encoding.Unicode.GetString(Program.GetEmbeddedResource("AllowRedefinition")));
+            executor.AutoRef = bool.Parse(Encoding.Unicode.GetString(Program.GetEmbeddedResource("AutoRef")));
+            executor.AddMethodDefClass = bool.Parse(Encoding.Unicode.GetString(Program.GetEmbeddedResource("AddMethodDefClass")));
             try
             {
                 foreach (string f in Directory.GetFiles(path))
@@ -35,7 +36,27 @@ namespace prometheus_loader
                 Application loaded = JsonHandler.ConvertToObj<Application>(Encoding.Unicode.GetString(Convert.FromBase64String(Encoding.Unicode.GetString(Program.GetEmbeddedResource("Source")))));
                 //loaded.Methods[0].instructions.Insert(0, new Instruction(Instruction.OpCode.syscall, "System.Println", "uwu"));
                 executor.Index(loaded);
-                executor.Execute(loaded, "App", "Main", args);
+                bool executed = false;
+                foreach(Class c in loaded.Classes)
+                {
+                    if(c.Definition == loaded.EntryClass)
+                    {
+                        foreach(Method m in c.Methods)
+                        {
+                            if(m.Definition == loaded.EntryMethod)
+                            {
+                                executor.Execute(m, args);
+                                executed = true;
+                                if (!executor.AllowRedefinition && executed)
+                                {
+                                    Console.WriteLine("-->Method Redefinition blocked: " + m.Definition);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                //executor.Execute(loaded, loaded.EntryClass, loaded.EntryMethod, args);
             }
             catch (Exception ex)
             {
