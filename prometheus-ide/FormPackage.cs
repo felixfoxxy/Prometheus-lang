@@ -38,7 +38,9 @@ namespace prometheus_ide
             checkedListBox1.Items.Clear();
             foreach (string f in Directory.EnumerateFiles(Program.GetOwnPath() + "libs"))
             {
-                checkedListBox1.Items.Add(f.Split(Path.DirectorySeparatorChar)[f.Split(Path.DirectorySeparatorChar).Length - 1]);
+                string fn = f.Split(Path.DirectorySeparatorChar)[f.Split(Path.DirectorySeparatorChar).Length - 1];
+                if(fn.ToLower().StartsWith("pmi-") && fn.ToLower().EndsWith(".dll"))
+                    checkedListBox1.Items.Add(fn);
             }
         }
 

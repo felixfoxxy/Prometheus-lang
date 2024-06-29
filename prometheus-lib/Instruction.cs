@@ -22,7 +22,8 @@ namespace prometheus
             jmp, //Jump to instruction
             brk, //Break
             add, //Add int
-            ret //Returns a value and exits the function
+            ret, //Returns a value and exits the function
+            cast //Returns the target casted to the type of the value
         }
 
         public OpCode opCode;

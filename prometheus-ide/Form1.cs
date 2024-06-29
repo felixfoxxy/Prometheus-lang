@@ -49,6 +49,8 @@ namespace prometheus_ide
             }
             resize();
             reloadProject(false);
+            updatelibs();
+            //MessageBox.Show(JsonHandler.ConvertToString(Type.GetType("System.Int32")));
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)
@@ -117,7 +119,11 @@ namespace prometheus_ide
             checkBox2.Checked = compilerOptions.AutoRef;
             checkBox3.Checked = compilerOptions.AddMethodDefClass;
             textBox1.Text = app.EntryClass;
-            textBox2.Text = app.EntryMethod;
+            if(app.EntryMethod.Contains('.'))
+                textBox2.Text = app.EntryMethod.Split('.')[app.EntryMethod.Split('.').Length -1];
+            else
+                textBox2.Text = app.EntryMethod;
+            updatelibs();
         }
 
         public void loadClass(Class c, TreeNode pnode)
@@ -552,6 +558,67 @@ namespace prometheus_ide
         {
             e.Cancel = tvpreventExpand;
             tvpreventExpand = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string pp = Path.GetDirectoryName(compilerOptions.BuildPath) + Path.DirectorySeparatorChar + "prometheus-lib.dll";
+            string np = Path.GetDirectoryName(compilerOptions.BuildPath) + Path.DirectorySeparatorChar + "Newtonsoft.Json.dll";
+            
+            if(File.Exists(pp))
+                File.Delete(pp);
+            if(File.Exists(np))
+                File.Delete(np);
+
+            File.Copy(Program.GetOwnPath() + "prometheus-lib.dll", pp);
+            File.Copy(Program.GetOwnPath() + "Newtonsoft.Json.dll", np);
+            
+            MessageBox.Show("Added prometheus-lib to build Directory!", "Prometheus Instruction IDE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            updatelibs();
+        }
+
+        void updatelibs()
+        {
+            checkedListBox1.Items.Clear();
+            foreach (string f in Directory.EnumerateFiles(Program.GetOwnPath() + "libs"))
+            {
+                string fn = f.Split(Path.DirectorySeparatorChar)[f.Split(Path.DirectorySeparatorChar).Length - 1];
+                
+                if (!(fn.ToLower().StartsWith("pmi-") && fn.ToLower().EndsWith(".dll")))
+                    continue;
+
+                checkedListBox1.Items.Add(fn);
+                if (File.Exists(compilerOptions.BuildPath))
+                    if(File.Exists(Path.GetDirectoryName(compilerOptions.BuildPath) + Path.DirectorySeparatorChar + fn))
+                        checkedListBox1.SetItemChecked(checkedListBox1.Items.Count - 1, true);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < checkedListBox1.Items.Count; i++)
+            {
+                string fn = checkedListBox1.Items[i] as string;
+                if (checkedListBox1.GetItemChecked(i))
+                {
+                    string np = Path.GetDirectoryName(compilerOptions.BuildPath) + Path.DirectorySeparatorChar + fn;
+                    if (File.Exists(np))
+                        File.Delete(np);
+                    File.Copy(GetOwnPath() + "libs" + Path.DirectorySeparatorChar + fn, np);
+                }
+                else
+                {
+                    string np = Path.GetDirectoryName(compilerOptions.BuildPath) + Path.DirectorySeparatorChar + fn;
+                    if (File.Exists(np))
+                        File.Delete(np);
+                }
+            }
+            updatelibs();
+            MessageBox.Show("Changed Libraries in build Directory!", "Prometheus Instruction IDE", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 

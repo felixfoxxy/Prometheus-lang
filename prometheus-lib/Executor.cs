@@ -2,6 +2,7 @@
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -309,11 +310,42 @@ namespace prometheus
                     break;
                 case Instruction.OpCode.snr:
                     break;
+                case Instruction.OpCode.cast: //fix
+                    if(instruction.Value is string)
+                    {
+                        if (lastInstruction != null && lastInstruction.opCode == Instruction.OpCode.snr)
+                        {
+                            Type t = Type.GetType(instruction.Value as string);
+                            variables[lastInstruction.Target as string] = Convert.ChangeType(variables[instruction.Target as string], t);
+                        }
+                    }
+                    break;
             }
 
             lastInstruction = instruction;
             //if (ret != null) Console.WriteLine("-->" + ret);
             return ret;
+        }
+    }
+    public static class ext
+    {
+        public static object GetDefaultValue(this Type type)
+        {
+            // Validate parameters.
+            if (type == null) throw new ArgumentNullException("type");
+
+            // We want an Func<object> which returns the default.
+            // Create that expression here.
+            Expression<Func<object>> e = Expression.Lambda<Func<object>>(
+                // Have to convert to object.
+                Expression.Convert(
+                    // The default value, always get what the *code* tells us.
+                    Expression.Default(type), typeof(object)
+                )
+            );
+
+            // Compile and return the value.
+            return e.Compile()();
         }
     }
 }

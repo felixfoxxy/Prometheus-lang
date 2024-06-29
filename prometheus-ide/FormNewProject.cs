@@ -51,7 +51,8 @@ namespace prometheus_ide
             prometheus.Application app = new prometheus.Application();
             app.Name = textBox2.Text;
             File.WriteAllText(srcpath, JsonHandler.ConvertToString(app));
-            File.WriteAllText(cmppath, JsonHandler.ConvertToString(new CompilerOptions()));
+            File.Copy(Program.GetOwnPath() + "prometheus-lib.dll", buildpath + Path.DirectorySeparatorChar + "prometheus-lib.dll");
+            File.Copy(Program.GetOwnPath() + "Newtonsoft.Json.dll", buildpath + Path.DirectorySeparatorChar + "Newtonsoft.Json.dll");
             ProjectDir = rootdir;
             ProjectSourcePath = srcpath;
             this.Close();

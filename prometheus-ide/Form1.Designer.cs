@@ -81,6 +81,11 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.toolStrip1.SuspendLayout();
             this.contextTree.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -91,6 +96,7 @@
             this.groupBox1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -122,7 +128,7 @@
             // 
             this.newToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.winrep_0;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -130,7 +136,7 @@
             // 
             this.saveToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.write_wordpad_0;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -139,7 +145,7 @@
             this.openToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.openToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.directory_open_cabinet_0;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -147,7 +153,7 @@
             // 
             this.closeToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.recycle_bin_empty_1;
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -155,7 +161,7 @@
             // 
             this.exitToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.no_0;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -223,7 +229,7 @@
             this.newToolStripMenuItem1,
             this.deleteToolStripMenuItem});
             this.contextTree.Name = "contextTree";
-            this.contextTree.Size = new System.Drawing.Size(181, 70);
+            this.contextTree.Size = new System.Drawing.Size(108, 48);
             // 
             // newToolStripMenuItem1
             // 
@@ -232,7 +238,7 @@
             this.methodToolStripMenuItem});
             this.newToolStripMenuItem1.Image = global::prometheus_ide.Properties.Resources.winrep_0;
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.newToolStripMenuItem1.Text = "New";
             // 
             // classToolStripMenuItem
@@ -240,7 +246,7 @@
             this.classToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.Class_Browser16_7;
             this.classToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Green;
             this.classToolStripMenuItem.Name = "classToolStripMenuItem";
-            this.classToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.classToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.classToolStripMenuItem.Text = "Class";
             this.classToolStripMenuItem.Click += new System.EventHandler(this.classToolStripMenuItem_Click);
             // 
@@ -249,7 +255,7 @@
             this.methodToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.Class_Browser16_61;
             this.methodToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Green;
             this.methodToolStripMenuItem.Name = "methodToolStripMenuItem";
-            this.methodToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.methodToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.methodToolStripMenuItem.Text = "Method";
             this.methodToolStripMenuItem.Click += new System.EventHandler(this.methodToolStripMenuItem_Click);
             // 
@@ -259,14 +265,14 @@
             this.confirmToolStripMenuItem});
             this.deleteToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.trust1_restrict_1;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // confirmToolStripMenuItem
             // 
             this.confirmToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.recycle_bin_full_1;
             this.confirmToolStripMenuItem.Name = "confirmToolStripMenuItem";
-            this.confirmToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.confirmToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.confirmToolStripMenuItem.Text = "Confirm";
             this.confirmToolStripMenuItem.Click += new System.EventHandler(this.confirmToolStripMenuItem_Click);
             // 
@@ -529,6 +535,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Controls.Add(this.button3);
             this.tabPage3.Controls.Add(this.button2);
             this.tabPage3.Controls.Add(this.groupBox2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -590,6 +598,56 @@
             this.checkBox1.Text = "AllowRedefinition(-redef)";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(87, 355);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(119, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Insert prometheus-lib";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(17, 20);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(237, 109);
+            this.checkedListBox1.TabIndex = 3;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(17, 135);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Update";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(98, 135);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 6;
+            this.button6.Text = "Refresh";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.checkedListBox1);
+            this.groupBox3.Controls.Add(this.button6);
+            this.groupBox3.Controls.Add(this.button4);
+            this.groupBox3.Location = new System.Drawing.Point(212, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(268, 171);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Libraries";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -616,6 +674,7 @@
             this.tabPage3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -674,6 +733,11 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ImageList treeIcons;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button4;
     }
 }
 
