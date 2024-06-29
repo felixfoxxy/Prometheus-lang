@@ -39,6 +39,9 @@
     <Reference Include="BetterFolderBrowser, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BetterFolderBrowser.1.2.0\lib\BetterFolderBrowser.dll</HintPath>
     </Reference>
+    <Reference Include="dnlib, Version=4.4.0.0, Culture=neutral, PublicKeyToken=50e96378b6e77999, processorArchitecture=MSIL">
+      <HintPath>..\packages\dnlib.4.4.0\lib\net45\dnlib.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="prometheus-lib">
       <HintPath>..\build\prometheus-lib.dll</HintPath>
@@ -46,6 +49,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,12 +80,19 @@
     <Compile Include="FormNewProject.Designer.cs">
       <DependentUpon>FormNewProject.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPackage.Designer.cs">
+      <DependentUpon>FormPackage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormValueEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormValueEditor.Designer.cs">
       <DependentUpon>FormValueEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="IconChanger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -92,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewProject.resx">
       <DependentUpon>FormNewProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPackage.resx">
+      <DependentUpon>FormPackage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormValueEditor.resx">
       <DependentUpon>FormValueEditor.cs</DependentUpon>

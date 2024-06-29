@@ -37,8 +37,8 @@ namespace prometheus_compile
                     module.Resources.Add(new EmbeddedResource("AddMethodDefClass", Encoding.Unicode.GetBytes(args.Contains("-mdefc").ToString())));
 
                     module.Resources.Add(new EmbeddedResource("Source", Encoding.Unicode.GetBytes(Convert.ToBase64String(Encoding.Unicode.GetBytes(enc)))));
-                    module.Resources.Add(new EmbeddedResource("Version", Encoding.Unicode.GetBytes("1_0")));
-                    module.Resources.Add(new EmbeddedResource("Local", Encoding.Unicode.GetBytes(true.ToString())));
+                    //module.Resources.Add(new EmbeddedResource("Version", Encoding.Unicode.GetBytes("1_0")));
+                    //module.Resources.Add(new EmbeddedResource("Local", Encoding.Unicode.GetBytes(true.ToString())));
                     module.Write(args[1]);
                     DateTime end = DateTime.Now;
                     TimeSpan finish = end.Subtract(start);

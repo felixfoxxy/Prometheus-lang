@@ -11,6 +11,7 @@ namespace prometheus
 {
     internal class Program
     {
+        //no longer used
         static void Main(string[] args)
         {
             Executor executor = new Executor();

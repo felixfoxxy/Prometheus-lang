@@ -320,7 +320,11 @@ namespace prometheus_ide
 
         void save()
         {
-            File.WriteAllText(ProjectSourcePath, JsonHandler.ConvertToString(treeView1.Nodes[0].Tag as prometheus.Application));
+            if (!string.IsNullOrWhiteSpace(ProjectSourcePath))
+            {
+                File.WriteAllText(ProjectSourcePath, JsonHandler.ConvertToString(treeView1.Nodes[0].Tag as prometheus.Application));
+                MessageBox.Show("Project Saved!", "Prometheus Instruction IDE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -344,14 +348,14 @@ namespace prometheus_ide
 
         private void runToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            save();
             compile(compilerOptions.BuildPath);
             Process.Start(compilerOptions.BuildPath);
         }
 
         private void packageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            compile(compilerOptions.BuildPath);
+            new FormPackage(ProjectDir + Path.DirectorySeparatorChar).ShowDialog();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
