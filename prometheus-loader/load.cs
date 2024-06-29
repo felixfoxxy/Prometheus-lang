@@ -45,13 +45,14 @@ namespace prometheus_loader
                         {
                             if(m.Definition == loaded.EntryMethod)
                             {
-                                executor.Execute(m, args);
-                                executed = true;
                                 if (!executor.AllowRedefinition && executed)
                                 {
                                     Console.WriteLine("-->Method Redefinition blocked: " + m.Definition);
                                     break;
                                 }
+
+                                executor.Execute(m, args);
+                                executed = true;
                             }
                         }
                     }

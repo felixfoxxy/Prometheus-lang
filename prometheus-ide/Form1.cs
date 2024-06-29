@@ -620,6 +620,94 @@ namespace prometheus_ide
             updatelibs();
             MessageBox.Show("Changed Libraries in build Directory!", "Prometheus Instruction IDE", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows[0].Tag is Instruction)
+            {
+                Clipboard.SetText(JsonHandler.ConvertToString(dataGridView1.SelectedRows[0].Tag as Instruction));
+            }
+        }
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows[0].Tag is Instruction)
+            {
+                Clipboard.SetText(JsonHandler.ConvertToString(dataGridView1.SelectedRows[0].Tag as Instruction));
+                if (dataGridView1.Tag is Method)
+                {
+                    ((Method)dataGridView1.Tag).instructions.Remove(dataGridView1.SelectedRows[0].Tag as Instruction);
+                }
+                else if(dataGridView1.Tag is Class)
+                {
+                    foreach(Method m in ((Class)dataGridView1.Tag).Methods)
+                    {
+                        if (m.instructions.Contains(dataGridView1.SelectedRows[0].Tag as Instruction))
+                        {
+                            m.instructions.Remove(dataGridView1.SelectedRows[0].Tag as Instruction);
+                            break;
+                        }
+                    }
+                }
+                loadinsts();
+                stylegrid();
+            }
+        }
+
+        private void beforeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows[0].Tag is Instruction)
+            {
+                Instruction ins = (JsonHandler.ConvertToObj<Instruction>(Clipboard.GetText()));
+                if (dataGridView1.Tag is Method)
+                {
+                    ((Method)dataGridView1.Tag).instructions.Insert(((Method)dataGridView1.Tag).instructions.IndexOf((Instruction)dataGridView1.SelectedRows[0].Tag), ins);
+                }
+                else if (dataGridView1.Tag is Class)
+                {
+                    foreach (Method m in ((Class)dataGridView1.Tag).Methods)
+                    {
+                        if (m.instructions.Contains(dataGridView1.SelectedRows[0].Tag as Instruction))
+                        {
+                            m.instructions.Insert(m.instructions.IndexOf((Instruction)dataGridView1.SelectedRows[0].Tag), ins);
+                            break;
+                        }
+                    }
+                }
+                loadinsts();
+                stylegrid();
+            }
+        }
+
+        private void afterToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows[0].Tag is Instruction)
+            {
+                Instruction ins = (JsonHandler.ConvertToObj<Instruction>(Clipboard.GetText()));
+                if (dataGridView1.Tag is Method)
+                {
+                    ((Method)dataGridView1.Tag).instructions.Insert(((Method)dataGridView1.Tag).instructions.IndexOf((Instruction)dataGridView1.SelectedRows[0].Tag) + 1, ins);
+                }
+                else if (dataGridView1.Tag is Class)
+                {
+                    foreach (Method m in ((Class)dataGridView1.Tag).Methods)
+                    {
+                        if (m.instructions.Contains(dataGridView1.SelectedRows[0].Tag as Instruction))
+                        {
+                            m.instructions.Insert(m.instructions.IndexOf((Instruction)dataGridView1.SelectedRows[0].Tag) + 1, ins);
+                            break;
+                        }
+                    }
+                }
+                loadinsts();
+                stylegrid();
+            }
+        }
+
+        private void moveToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 
     class DataGridViewLabelCell : DataGridViewTextBoxCell
