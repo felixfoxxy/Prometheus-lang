@@ -38,19 +38,25 @@ namespace prometheus
 
         public void Index(Class c)
         {
-            foreach (Method meth in c.Methods)
+            if (c.Methods != null)
             {
-                if (AddMethodDefClass)
-                    Index(meth, c);
-                else
-                    Index(meth);
+                foreach (Method meth in c.Methods)
+                {
+                    if (AddMethodDefClass)
+                        Index(meth, c);
+                    else
+                        Index(meth);
+                }
             }
-            foreach(Class sc in c.Classes)
+            if (c.Classes != null)
             {
-                if(AddMethodDefClass)
-                    Index(sc, c);
-                else
-                    Index(sc);
+                foreach (Class sc in c.Classes)
+                {
+                    if (AddMethodDefClass)
+                        Index(sc, c);
+                    else
+                        Index(sc);
+                }
             }
         }
 
@@ -58,16 +64,22 @@ namespace prometheus
         {
             if (AddMethodDefClass)
                 c.Definition = pc.Definition + "." + c.Definition;
-            foreach (Method meth in c.Methods)
+            if (c.Methods != null)
             {
-                if (AddMethodDefClass)
-                    Index(meth, c);
-                else
-                    Index(meth);
+                foreach (Method meth in c.Methods)
+                {
+                    if (AddMethodDefClass)
+                        Index(meth, c);
+                    else
+                        Index(meth);
+                }
             }
-            foreach (Class sc in c.Classes)
+            if (c.Classes != null)
             {
-                Index(sc, c);
+                foreach (Class sc in c.Classes)
+                {
+                    Index(sc, c);
+                }
             }
         }
 
@@ -299,9 +311,33 @@ namespace prometheus
                     }
                     break;
                 case Instruction.OpCode.add:
-                    if (instruction.Target is string && int.TryParse(instruction.Value.ToString(), out _))
                     {
-                        variables[instruction.Target as string] = int.Parse(variables[instruction.Target as string].ToString()) + int.Parse(instruction.Value.ToString());
+                        string asnr = "";
+                        if (lastInstruction != null && lastInstruction.opCode == Instruction.OpCode.snr)
+                            asnr = lastInstruction.Target as string;
+
+                        if (int.TryParse(instruction.Value.ToString(), out _))
+                        {
+                            ret = int.Parse(variables[instruction.Target as string].ToString()) + int.Parse(instruction.Value.ToString());
+                        }
+                        else
+                        {
+                            if (instruction.Target is string)
+                            {
+                                if (instruction.Value is Reference)
+                                {
+                                    ret = int.Parse(variables[instruction.Target as string].ToString()) + int.Parse(variables[(instruction.Value as Reference).Variable].ToString());
+                                }
+                                else
+                                    ret = int.Parse(variables[instruction.Target as string].ToString()) + int.Parse(instruction.Value.ToString());
+                            }
+                        }
+
+                        if (asnr != "")
+                        {
+                            if (!variables.ContainsKey(asnr as string)) break;
+                            variables[asnr] = ret;
+                        }
                     }
                     break;
                 case Instruction.OpCode.ret:
@@ -317,6 +353,96 @@ namespace prometheus
                         {
                             Type t = Type.GetType(instruction.Value as string);
                             variables[lastInstruction.Target as string] = Convert.ChangeType(variables[instruction.Target as string], t);
+                        }
+                    }
+                    break;
+                case Instruction.OpCode.sub:
+                    {
+                        string asnr = "";
+                        if (lastInstruction != null && lastInstruction.opCode == Instruction.OpCode.snr)
+                            asnr = lastInstruction.Target as string;
+
+                        if (int.TryParse(instruction.Value.ToString(), out _))
+                        {
+                            ret = int.Parse(variables[instruction.Target as string].ToString()) - int.Parse(instruction.Value.ToString());
+                        }
+                        else
+                        {
+                            if (instruction.Target is string)
+                            {
+                                if (instruction.Value is Reference)
+                                {
+                                    ret = int.Parse(variables[instruction.Target as string].ToString()) - int.Parse(variables[(instruction.Value as Reference).Variable].ToString());
+                                }
+                                else
+                                    ret = int.Parse(variables[instruction.Target as string].ToString()) - int.Parse(instruction.Value.ToString());
+                            }
+                        }
+
+                        if (asnr != "")
+                        {
+                            if (!variables.ContainsKey(asnr as string)) break;
+                            variables[asnr] = ret;
+                        }
+                    }
+                    break;
+                case Instruction.OpCode.mul:
+                    {
+                        string asnr = "";
+                        if (lastInstruction != null && lastInstruction.opCode == Instruction.OpCode.snr)
+                            asnr = lastInstruction.Target as string;
+
+                        if (int.TryParse(instruction.Value.ToString(), out _))
+                        {
+                            ret = int.Parse(variables[instruction.Target as string].ToString()) * int.Parse(instruction.Value.ToString());
+                        }
+                        else
+                        {
+                            if (instruction.Target is string)
+                            {
+                                if (instruction.Value is Reference)
+                                {
+                                    ret = int.Parse(variables[instruction.Target as string].ToString()) * int.Parse(variables[(instruction.Value as Reference).Variable].ToString());
+                                }
+                                else
+                                    ret = int.Parse(variables[instruction.Target as string].ToString()) * int.Parse(instruction.Value.ToString());
+                            }
+                        }
+
+                        if (asnr != "")
+                        {
+                            if (!variables.ContainsKey(asnr as string)) break;
+                            variables[asnr] = ret;
+                        }
+                    }
+                    break;
+                case Instruction.OpCode.div:
+                    {
+                        string asnr = "";
+                        if (lastInstruction != null && lastInstruction.opCode == Instruction.OpCode.snr)
+                            asnr = lastInstruction.Target as string;
+
+                        if (int.TryParse(instruction.Value.ToString(), out _))
+                        {
+                            ret = int.Parse(variables[instruction.Target as string].ToString()) / int.Parse(instruction.Value.ToString());
+                        }
+                        else
+                        {
+                            if (instruction.Target is string)
+                            {
+                                if (instruction.Value is Reference)
+                                {
+                                    ret = int.Parse(variables[instruction.Target as string].ToString()) / int.Parse(variables[(instruction.Value as Reference).Variable].ToString());
+                                }
+                                else
+                                    ret = int.Parse(variables[instruction.Target as string].ToString()) / int.Parse(instruction.Value.ToString());
+                            }
+                        }
+
+                        if (asnr != "")
+                        {
+                            if (!variables.ContainsKey(asnr as string)) break;
+                            variables[asnr] = ret;
                         }
                     }
                     break;

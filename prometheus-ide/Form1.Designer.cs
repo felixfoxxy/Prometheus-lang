@@ -48,15 +48,12 @@
             this.methodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.confirmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.moveToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Index = new prometheus_ide.DataGridViewLabelCellColumn();
-            this.OpCode = new prometheus_ide.DataGridViewLabelCellColumn();
-            this.Target = new prometheus_ide.DataGridViewLabelCellColumn();
-            this.Value = new prometheus_ide.DataGridViewLabelCellColumn();
-            this.dataGridViewLabelCellColumn1 = new prometheus_ide.DataGridViewLabelCellColumn();
-            this.dataGridViewLabelCellColumn2 = new prometheus_ide.DataGridViewLabelCellColumn();
-            this.dataGridViewLabelCellColumn3 = new prometheus_ide.DataGridViewLabelCellColumn();
-            this.dataGridViewLabelCellColumn4 = new prometheus_ide.DataGridViewLabelCellColumn();
             this.contextInst = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,6 +90,15 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.dataGridViewLabelCellColumn1 = new prometheus_ide.DataGridViewLabelCellColumn();
+            this.dataGridViewLabelCellColumn2 = new prometheus_ide.DataGridViewLabelCellColumn();
+            this.dataGridViewLabelCellColumn3 = new prometheus_ide.DataGridViewLabelCellColumn();
+            this.dataGridViewLabelCellColumn4 = new prometheus_ide.DataGridViewLabelCellColumn();
+            this.Index = new prometheus_ide.DataGridViewLabelCellColumn();
+            this.OpCode = new prometheus_ide.DataGridViewLabelCellColumn();
+            this.Target = new prometheus_ide.DataGridViewLabelCellColumn();
+            this.Value = new prometheus_ide.DataGridViewLabelCellColumn();
+            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.contextTree.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -234,9 +240,11 @@
             // 
             this.contextTree.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem1,
-            this.deleteToolStripMenuItem});
+            this.deleteToolStripMenuItem,
+            this.transferToolStripMenuItem1,
+            this.renameToolStripMenuItem});
             this.contextTree.Name = "contextTree";
-            this.contextTree.Size = new System.Drawing.Size(108, 48);
+            this.contextTree.Size = new System.Drawing.Size(181, 114);
             // 
             // newToolStripMenuItem1
             // 
@@ -245,7 +253,7 @@
             this.methodToolStripMenuItem});
             this.newToolStripMenuItem1.Image = global::prometheus_ide.Properties.Resources.winrep_0;
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
             this.newToolStripMenuItem1.Text = "New";
             // 
             // classToolStripMenuItem
@@ -272,7 +280,7 @@
             this.confirmToolStripMenuItem});
             this.deleteToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.trust1_restrict_1;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // confirmToolStripMenuItem
@@ -282,6 +290,45 @@
             this.confirmToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.confirmToolStripMenuItem.Text = "Confirm";
             this.confirmToolStripMenuItem.Click += new System.EventHandler(this.confirmToolStripMenuItem_Click);
+            // 
+            // transferToolStripMenuItem1
+            // 
+            this.transferToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem1,
+            this.cutToolStripMenuItem1,
+            this.pasteToolStripMenuItem1,
+            this.moveToolStripMenuItem2});
+            this.transferToolStripMenuItem1.Image = global::prometheus_ide.Properties.Resources.network_1;
+            this.transferToolStripMenuItem1.Name = "transferToolStripMenuItem1";
+            this.transferToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
+            this.transferToolStripMenuItem1.Text = "Transfer";
+            // 
+            // copyToolStripMenuItem1
+            // 
+            this.copyToolStripMenuItem1.Name = "copyToolStripMenuItem1";
+            this.copyToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.copyToolStripMenuItem1.Text = "Copy";
+            this.copyToolStripMenuItem1.Click += new System.EventHandler(this.copyToolStripMenuItem1_Click);
+            // 
+            // cutToolStripMenuItem1
+            // 
+            this.cutToolStripMenuItem1.Name = "cutToolStripMenuItem1";
+            this.cutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cutToolStripMenuItem1.Text = "Cut";
+            this.cutToolStripMenuItem1.Click += new System.EventHandler(this.cutToolStripMenuItem1_Click);
+            // 
+            // pasteToolStripMenuItem1
+            // 
+            this.pasteToolStripMenuItem1.Name = "pasteToolStripMenuItem1";
+            this.pasteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.pasteToolStripMenuItem1.Text = "Paste";
+            this.pasteToolStripMenuItem1.Click += new System.EventHandler(this.pasteToolStripMenuItem1_Click);
+            // 
+            // moveToolStripMenuItem2
+            // 
+            this.moveToolStripMenuItem2.Name = "moveToolStripMenuItem2";
+            this.moveToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.moveToolStripMenuItem2.Text = "Move";
             // 
             // dataGridView1
             // 
@@ -313,69 +360,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(566, 378);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
-            // 
-            // Index
-            // 
-            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.Index.HeaderText = "Index";
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
-            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Index.Width = 5;
-            // 
-            // OpCode
-            // 
-            this.OpCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.OpCode.HeaderText = "OpCode";
-            this.OpCode.Name = "OpCode";
-            this.OpCode.ReadOnly = true;
-            this.OpCode.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.OpCode.Width = 5;
-            // 
-            // Target
-            // 
-            this.Target.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.Target.HeaderText = "Target";
-            this.Target.Name = "Target";
-            this.Target.ReadOnly = true;
-            this.Target.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Target.Width = 5;
-            // 
-            // Value
-            // 
-            this.Value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Value.HeaderText = "Value";
-            this.Value.Name = "Value";
-            this.Value.ReadOnly = true;
-            this.Value.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewLabelCellColumn1
-            // 
-            this.dataGridViewLabelCellColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewLabelCellColumn1.HeaderText = "Index";
-            this.dataGridViewLabelCellColumn1.Name = "dataGridViewLabelCellColumn1";
-            this.dataGridViewLabelCellColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewLabelCellColumn2
-            // 
-            this.dataGridViewLabelCellColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewLabelCellColumn2.HeaderText = "OpCode";
-            this.dataGridViewLabelCellColumn2.Name = "dataGridViewLabelCellColumn2";
-            this.dataGridViewLabelCellColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewLabelCellColumn3
-            // 
-            this.dataGridViewLabelCellColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewLabelCellColumn3.HeaderText = "Target";
-            this.dataGridViewLabelCellColumn3.Name = "dataGridViewLabelCellColumn3";
-            this.dataGridViewLabelCellColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewLabelCellColumn4
-            // 
-            this.dataGridViewLabelCellColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewLabelCellColumn4.HeaderText = "Value";
-            this.dataGridViewLabelCellColumn4.Name = "dataGridViewLabelCellColumn4";
-            this.dataGridViewLabelCellColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // contextInst
             // 
@@ -467,14 +451,14 @@
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.cutToolStripMenuItem.Text = "Cut";
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
@@ -484,27 +468,27 @@
             this.beforeToolStripMenuItem1,
             this.afterToolStripMenuItem1});
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
             // 
             // beforeToolStripMenuItem1
             // 
             this.beforeToolStripMenuItem1.Name = "beforeToolStripMenuItem1";
-            this.beforeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.beforeToolStripMenuItem1.Size = new System.Drawing.Size(108, 22);
             this.beforeToolStripMenuItem1.Text = "Before";
             this.beforeToolStripMenuItem1.Click += new System.EventHandler(this.beforeToolStripMenuItem1_Click);
             // 
             // afterToolStripMenuItem1
             // 
             this.afterToolStripMenuItem1.Name = "afterToolStripMenuItem1";
-            this.afterToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.afterToolStripMenuItem1.Size = new System.Drawing.Size(108, 22);
             this.afterToolStripMenuItem1.Text = "After";
             this.afterToolStripMenuItem1.Click += new System.EventHandler(this.afterToolStripMenuItem1_Click);
             // 
             // moveToolStripMenuItem1
             // 
             this.moveToolStripMenuItem1.Name = "moveToolStripMenuItem1";
-            this.moveToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.moveToolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
             this.moveToolStripMenuItem1.Text = "Move";
             this.moveToolStripMenuItem1.Click += new System.EventHandler(this.moveToolStripMenuItem1_Click);
             // 
@@ -712,6 +696,80 @@
             this.checkBox1.Text = "AllowRedefinition(-redef)";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewLabelCellColumn1
+            // 
+            this.dataGridViewLabelCellColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewLabelCellColumn1.HeaderText = "Index";
+            this.dataGridViewLabelCellColumn1.Name = "dataGridViewLabelCellColumn1";
+            this.dataGridViewLabelCellColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewLabelCellColumn1.Width = 5;
+            // 
+            // dataGridViewLabelCellColumn2
+            // 
+            this.dataGridViewLabelCellColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewLabelCellColumn2.HeaderText = "OpCode";
+            this.dataGridViewLabelCellColumn2.Name = "dataGridViewLabelCellColumn2";
+            this.dataGridViewLabelCellColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewLabelCellColumn2.Width = 5;
+            // 
+            // dataGridViewLabelCellColumn3
+            // 
+            this.dataGridViewLabelCellColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewLabelCellColumn3.HeaderText = "Target";
+            this.dataGridViewLabelCellColumn3.Name = "dataGridViewLabelCellColumn3";
+            this.dataGridViewLabelCellColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewLabelCellColumn3.Width = 5;
+            // 
+            // dataGridViewLabelCellColumn4
+            // 
+            this.dataGridViewLabelCellColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewLabelCellColumn4.HeaderText = "Value";
+            this.dataGridViewLabelCellColumn4.Name = "dataGridViewLabelCellColumn4";
+            this.dataGridViewLabelCellColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Index
+            // 
+            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.Index.HeaderText = "Index";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Index.Width = 5;
+            // 
+            // OpCode
+            // 
+            this.OpCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.OpCode.HeaderText = "OpCode";
+            this.OpCode.Name = "OpCode";
+            this.OpCode.ReadOnly = true;
+            this.OpCode.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.OpCode.Width = 5;
+            // 
+            // Target
+            // 
+            this.Target.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.Target.HeaderText = "Target";
+            this.Target.Name = "Target";
+            this.Target.ReadOnly = true;
+            this.Target.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Target.Width = 5;
+            // 
+            // Value
+            // 
+            this.Value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Value.HeaderText = "Value";
+            this.Value.Name = "Value";
+            this.Value.ReadOnly = true;
+            this.Value.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // renameToolStripMenuItem
+            // 
+            this.renameToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.write_file_0;
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.renameToolStripMenuItem.Text = "Rename";
+            this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -809,6 +867,12 @@
         private System.Windows.Forms.ToolStripMenuItem beforeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem afterToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem transferToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
     }
 }
 

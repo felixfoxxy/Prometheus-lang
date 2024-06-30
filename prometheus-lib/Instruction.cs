@@ -21,9 +21,12 @@ namespace prometheus
             brend, //Branch end
             jmp, //Jump to instruction
             brk, //Break
-            add, //Add int
+            add, //Add int to int and return output
             ret, //Returns a value and exits the function
-            cast //Returns the target casted to the type of the value
+            cast, //Returns the target casted to the type of the value
+            sub, 
+            mul,
+            div,
         }
 
         public OpCode opCode;

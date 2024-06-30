@@ -133,8 +133,9 @@ namespace prometheus_ide
             node.ImageKey = "Class_Browser16_7";
             node.SelectedImageKey = "Class_Browser16_7";
             pnode.Nodes.Add(node);
-            foreach (Method m in c.Methods)
-                loadMethod(m, node);
+            if(c.Methods != null)
+                foreach (Method m in c.Methods)
+                    loadMethod(m, node);
             if(c.Classes != null)
                 foreach(Class sc in c.Classes)
                     loadClass(sc, node);
@@ -737,6 +738,94 @@ namespace prometheus_ide
         private void moveToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void copyToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(JsonHandler.ConvertToString(treeView1.SelectedNode.Tag));
+        }
+
+        private void cutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (treeView1.SelectedNode.Tag is Class)
+            {
+                Clipboard.SetText(JsonHandler.ConvertToString(treeView1.SelectedNode.Tag));
+                foreach (Class c in app.Classes)
+                    delclass(c);
+            }
+            else if(treeView1.SelectedNode.Tag is Method)
+            {
+                Clipboard.SetText(JsonHandler.ConvertToString(treeView1.SelectedNode.Tag));
+                foreach(Class c in app.Classes)
+                    delmeth(c);
+            }
+            reloadProject();
+            loadinsts();
+            stylegrid();
+        }
+
+        private void pasteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if(treeView1.SelectedNode != null)
+            {
+                bool done = false;
+                try
+                {
+                    Method m = JsonHandler.ConvertToObj<Method>(Clipboard.GetText());
+                    if (treeView1.SelectedNode.Tag is Class)
+                        ((Class)treeView1.SelectedNode.Tag).Methods.Add(m);
+                    done = true;
+                }
+                catch (Exception) { }
+                try
+                {
+                    if (!done)
+                    {
+                        Class c = JsonHandler.ConvertToObj<Class>(Clipboard.GetText());
+                        if (treeView1.SelectedNode.Tag is Class)
+                            ((Class)treeView1.SelectedNode.Tag).Classes.Add(c);
+                        else if (treeView1.SelectedNode.Tag is prometheus.Application)
+                            ((prometheus.Application)treeView1.SelectedNode.Tag).Classes.Add(c);
+                        done = true;
+                    }
+                }
+                catch (Exception) { }
+            }
+            reloadProject();
+            loadinsts();
+            stylegrid();
+        }
+
+        private void renameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool method = false;
+            bool cls = false;
+
+            if (treeView1.SelectedNode.Tag is Method)
+                method = true;
+
+            else if(treeView1.SelectedNode.Tag is Class)
+                cls = true;
+
+            string nn = "unnamed";
+            if(method)
+                nn = Interaction.InputBox("Method Name", "Prometheus Instruction IDE");
+            else if(cls)
+                nn = Interaction.InputBox("Class Name", "Prometheus Instruction IDE");
+
+            if (!string.IsNullOrWhiteSpace(nn))
+            {
+                if (method)
+                {
+                    ((Method)treeView1.SelectedNode.Tag).Definition = nn;
+                }else if(cls)
+                {
+                    ((Class)treeView1.SelectedNode.Tag).Definition = nn;
+                }
+            }
+            reloadProject();
+            loadinsts();
+            stylegrid();
         }
     }
 

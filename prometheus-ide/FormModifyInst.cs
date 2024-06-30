@@ -30,6 +30,7 @@ namespace prometheus_ide
             }
             comboBox1.SelectedItem = comboBox1.Items[opcode];
             textBox1.Text = inst.Target as string;
+            value = ins.Value;
         }
 
         private void button1_Click(object sender, EventArgs e)

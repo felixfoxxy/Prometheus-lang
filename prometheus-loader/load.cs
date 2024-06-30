@@ -41,6 +41,7 @@ namespace prometheus_loader
                 {
                     if(c.Definition == loaded.EntryClass)
                     {
+                        if (c.Methods == null) continue;
                         foreach(Method m in c.Methods)
                         {
                             if(m.Definition == loaded.EntryMethod)
