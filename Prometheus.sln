@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pmi-console", "pmi-console\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pmi-math", "pmi-math\pmi-math.csproj", "{50557BA5-B6A2-4CF1-B206-9A0E011FA858}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prometheus-decompile", "prometheus-decompile\prometheus-decompile.csproj", "{D52C4266-8B8C-4282-9328-FAC482DD58A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{50557BA5-B6A2-4CF1-B206-9A0E011FA858}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50557BA5-B6A2-4CF1-B206-9A0E011FA858}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50557BA5-B6A2-4CF1-B206-9A0E011FA858}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D52C4266-8B8C-4282-9328-FAC482DD58A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D52C4266-8B8C-4282-9328-FAC482DD58A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D52C4266-8B8C-4282-9328-FAC482DD58A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D52C4266-8B8C-4282-9328-FAC482DD58A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

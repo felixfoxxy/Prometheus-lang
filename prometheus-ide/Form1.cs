@@ -827,6 +827,11 @@ namespace prometheus_ide
             loadinsts();
             stylegrid();
         }
+
+        private void decompileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FormDecompile().ShowDialog();
+        }
     }
 
     class DataGridViewLabelCell : DataGridViewTextBoxCell

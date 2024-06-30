@@ -53,7 +53,12 @@
             this.cutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.moveToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Index = new prometheus_ide.DataGridViewLabelCellColumn();
+            this.OpCode = new prometheus_ide.DataGridViewLabelCellColumn();
+            this.Target = new prometheus_ide.DataGridViewLabelCellColumn();
+            this.Value = new prometheus_ide.DataGridViewLabelCellColumn();
             this.contextInst = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,11 +99,7 @@
             this.dataGridViewLabelCellColumn2 = new prometheus_ide.DataGridViewLabelCellColumn();
             this.dataGridViewLabelCellColumn3 = new prometheus_ide.DataGridViewLabelCellColumn();
             this.dataGridViewLabelCellColumn4 = new prometheus_ide.DataGridViewLabelCellColumn();
-            this.Index = new prometheus_ide.DataGridViewLabelCellColumn();
-            this.OpCode = new prometheus_ide.DataGridViewLabelCellColumn();
-            this.Target = new prometheus_ide.DataGridViewLabelCellColumn();
-            this.Value = new prometheus_ide.DataGridViewLabelCellColumn();
-            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.decompileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.contextTree.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -183,7 +184,8 @@
             this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.compileToolStripMenuItem,
             this.runToolStripMenuItem,
-            this.packageToolStripMenuItem});
+            this.packageToolStripMenuItem,
+            this.decompileToolStripMenuItem});
             this.toolStripDropDownButton2.Image = global::prometheus_ide.Properties.Resources.ole_0;
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
@@ -194,7 +196,7 @@
             // 
             this.compileToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.defragment_1;
             this.compileToolStripMenuItem.Name = "compileToolStripMenuItem";
-            this.compileToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.compileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.compileToolStripMenuItem.Text = "Compile";
             this.compileToolStripMenuItem.Click += new System.EventHandler(this.compileToolStripMenuItem_Click);
             // 
@@ -203,7 +205,7 @@
             this.runToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.runToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.wm_3;
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.runToolStripMenuItem.Text = "Run";
             this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
             // 
@@ -211,7 +213,7 @@
             // 
             this.packageToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.package_0;
             this.packageToolStripMenuItem.Name = "packageToolStripMenuItem";
-            this.packageToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.packageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.packageToolStripMenuItem.Text = "Package";
             this.packageToolStripMenuItem.Click += new System.EventHandler(this.packageToolStripMenuItem_Click);
             // 
@@ -244,7 +246,7 @@
             this.transferToolStripMenuItem1,
             this.renameToolStripMenuItem});
             this.contextTree.Name = "contextTree";
-            this.contextTree.Size = new System.Drawing.Size(181, 114);
+            this.contextTree.Size = new System.Drawing.Size(118, 92);
             // 
             // newToolStripMenuItem1
             // 
@@ -253,7 +255,7 @@
             this.methodToolStripMenuItem});
             this.newToolStripMenuItem1.Image = global::prometheus_ide.Properties.Resources.winrep_0;
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
             this.newToolStripMenuItem1.Text = "New";
             // 
             // classToolStripMenuItem
@@ -280,7 +282,7 @@
             this.confirmToolStripMenuItem});
             this.deleteToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.trust1_restrict_1;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // confirmToolStripMenuItem
@@ -300,35 +302,43 @@
             this.moveToolStripMenuItem2});
             this.transferToolStripMenuItem1.Image = global::prometheus_ide.Properties.Resources.network_1;
             this.transferToolStripMenuItem1.Name = "transferToolStripMenuItem1";
-            this.transferToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
+            this.transferToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
             this.transferToolStripMenuItem1.Text = "Transfer";
             // 
             // copyToolStripMenuItem1
             // 
             this.copyToolStripMenuItem1.Name = "copyToolStripMenuItem1";
-            this.copyToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.copyToolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
             this.copyToolStripMenuItem1.Text = "Copy";
             this.copyToolStripMenuItem1.Click += new System.EventHandler(this.copyToolStripMenuItem1_Click);
             // 
             // cutToolStripMenuItem1
             // 
             this.cutToolStripMenuItem1.Name = "cutToolStripMenuItem1";
-            this.cutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.cutToolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
             this.cutToolStripMenuItem1.Text = "Cut";
             this.cutToolStripMenuItem1.Click += new System.EventHandler(this.cutToolStripMenuItem1_Click);
             // 
             // pasteToolStripMenuItem1
             // 
             this.pasteToolStripMenuItem1.Name = "pasteToolStripMenuItem1";
-            this.pasteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.pasteToolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
             this.pasteToolStripMenuItem1.Text = "Paste";
             this.pasteToolStripMenuItem1.Click += new System.EventHandler(this.pasteToolStripMenuItem1_Click);
             // 
             // moveToolStripMenuItem2
             // 
             this.moveToolStripMenuItem2.Name = "moveToolStripMenuItem2";
-            this.moveToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.moveToolStripMenuItem2.Size = new System.Drawing.Size(104, 22);
             this.moveToolStripMenuItem2.Text = "Move";
+            // 
+            // renameToolStripMenuItem
+            // 
+            this.renameToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.write_file_0;
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.renameToolStripMenuItem.Text = "Rename";
+            this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
@@ -360,6 +370,41 @@
             this.dataGridView1.Size = new System.Drawing.Size(566, 378);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
+            // 
+            // Index
+            // 
+            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.Index.HeaderText = "Index";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Index.Width = 5;
+            // 
+            // OpCode
+            // 
+            this.OpCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.OpCode.HeaderText = "OpCode";
+            this.OpCode.Name = "OpCode";
+            this.OpCode.ReadOnly = true;
+            this.OpCode.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.OpCode.Width = 5;
+            // 
+            // Target
+            // 
+            this.Target.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.Target.HeaderText = "Target";
+            this.Target.Name = "Target";
+            this.Target.ReadOnly = true;
+            this.Target.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Target.Width = 5;
+            // 
+            // Value
+            // 
+            this.Value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Value.HeaderText = "Value";
+            this.Value.Name = "Value";
+            this.Value.ReadOnly = true;
+            this.Value.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // contextInst
             // 
@@ -702,7 +747,6 @@
             this.dataGridViewLabelCellColumn1.HeaderText = "Index";
             this.dataGridViewLabelCellColumn1.Name = "dataGridViewLabelCellColumn1";
             this.dataGridViewLabelCellColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewLabelCellColumn1.Width = 5;
             // 
             // dataGridViewLabelCellColumn2
             // 
@@ -710,7 +754,6 @@
             this.dataGridViewLabelCellColumn2.HeaderText = "OpCode";
             this.dataGridViewLabelCellColumn2.Name = "dataGridViewLabelCellColumn2";
             this.dataGridViewLabelCellColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewLabelCellColumn2.Width = 5;
             // 
             // dataGridViewLabelCellColumn3
             // 
@@ -718,7 +761,6 @@
             this.dataGridViewLabelCellColumn3.HeaderText = "Target";
             this.dataGridViewLabelCellColumn3.Name = "dataGridViewLabelCellColumn3";
             this.dataGridViewLabelCellColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewLabelCellColumn3.Width = 5;
             // 
             // dataGridViewLabelCellColumn4
             // 
@@ -727,48 +769,13 @@
             this.dataGridViewLabelCellColumn4.Name = "dataGridViewLabelCellColumn4";
             this.dataGridViewLabelCellColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // Index
+            // decompileToolStripMenuItem
             // 
-            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.Index.HeaderText = "Index";
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
-            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Index.Width = 5;
-            // 
-            // OpCode
-            // 
-            this.OpCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.OpCode.HeaderText = "OpCode";
-            this.OpCode.Name = "OpCode";
-            this.OpCode.ReadOnly = true;
-            this.OpCode.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.OpCode.Width = 5;
-            // 
-            // Target
-            // 
-            this.Target.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.Target.HeaderText = "Target";
-            this.Target.Name = "Target";
-            this.Target.ReadOnly = true;
-            this.Target.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Target.Width = 5;
-            // 
-            // Value
-            // 
-            this.Value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Value.HeaderText = "Value";
-            this.Value.Name = "Value";
-            this.Value.ReadOnly = true;
-            this.Value.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // renameToolStripMenuItem
-            // 
-            this.renameToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.write_file_0;
-            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.renameToolStripMenuItem.Text = "Rename";
-            this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
+            this.decompileToolStripMenuItem.Image = global::prometheus_ide.Properties.Resources.ram_drive_1;
+            this.decompileToolStripMenuItem.Name = "decompileToolStripMenuItem";
+            this.decompileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.decompileToolStripMenuItem.Text = "Decompile";
+            this.decompileToolStripMenuItem.Click += new System.EventHandler(this.decompileToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -873,6 +880,7 @@
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem decompileToolStripMenuItem;
     }
 }
 
