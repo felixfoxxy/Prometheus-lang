@@ -24,9 +24,11 @@ namespace prometheus
             add, //Add int to int and return output
             ret, //Returns a value and exits the function
             cast, //Returns the target casted to the type of the value
-            sub, 
-            mul,
-            div,
+            sub, //Subtract target by value
+            mul, //Multiply target by value
+            div, //Divide target by value
+            stfld, //Set field to value
+            ldfld, //Get value of field
         }
 
         public OpCode opCode;

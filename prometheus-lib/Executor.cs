@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.Diagnostics.SymbolStore;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Security.Cryptography;
@@ -351,8 +352,8 @@ namespace prometheus
                     {
                         if (lastInstruction != null && lastInstruction.opCode == Instruction.OpCode.snr)
                         {
-                            Type t = Type.GetType(instruction.Value as string);
-                            variables[lastInstruction.Target as string] = Convert.ChangeType(variables[instruction.Target as string], t);
+                            Type ct = Type.GetType(instruction.Value as string);
+                            variables[lastInstruction.Target as string] = Convert.ChangeType(variables[instruction.Target as string], ct);
                         }
                     }
                     break;
@@ -446,6 +447,33 @@ namespace prometheus
                         }
                     }
                     break;
+                case Instruction.OpCode.stfld:
+                    string fld_snr = "";
+                    if (lastInstruction != null && lastInstruction.opCode == Instruction.OpCode.snr)
+                        fld_snr = lastInstruction.Target as string;
+
+                    if (fld_snr != "")
+                    {
+                        Console.WriteLine(fld_snr);
+                        Console.WriteLine(instruction.Target as string);
+                        if (!variables.ContainsKey(fld_snr)) break;
+                        ext.SetAttribute(variables[fld_snr], instruction.Target as string, instruction.Value);
+                    }
+                    break;
+                case Instruction.OpCode.ldfld:
+                    string lfld_snr = "";
+                    if (lastInstruction != null && lastInstruction.opCode == Instruction.OpCode.snr)
+                        lfld_snr = lastInstruction.Target as string;
+
+                    Console.WriteLine(instruction.Target as string);
+                    ret = ext.GetAttribute<object>(variables[instruction.Target as string], instruction.Value as string);
+                    
+                    if (lfld_snr != "")
+                    {
+                        if (!variables.ContainsKey(lfld_snr)) break;
+                        variables[lfld_snr] = ret;
+                    }
+                    break;
             }
 
             lastInstruction = instruction;
@@ -472,6 +500,27 @@ namespace prometheus
 
             // Compile and return the value.
             return e.Compile()();
+        }
+
+        public static T CastObject<T>(object input)
+        {
+            return (T)input;
+        }
+
+        public static T ConvertObject<T>(object input)
+        {
+            return (T)Convert.ChangeType(input, typeof(T));
+        }
+
+
+        public static T GetAttribute<T>(object o, string _name)
+        {
+            return (T)o.GetType().GetField(_name).GetValue(o);
+        }
+
+        public static void SetAttribute(object o, string _name, object v)
+        {
+            o.GetType().GetField(_name).SetValue(o, v);
         }
     }
 }
